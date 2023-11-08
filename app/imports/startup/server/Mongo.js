@@ -1,18 +1,18 @@
 import { Meteor } from 'meteor/meteor';
-import { Stuffs } from '../../api/stuff/Stuff.js';
+import { Reviews } from '../../api/reviews/Review.js';
 
 /* eslint-disable no-console */
 
 // Initialize the database with a default data document.
 const addData = (data) => {
-  console.log(`  Adding: ${data.name} (${data.owner})`);
-  Stuffs.collection.insert(data);
+  console.log(`  Adding: ${data.reviewer}`);
+  Reviews.collection.insert(data);
 };
 
 // Initialize the StuffsCollection if empty.
-if (Stuffs.collection.find().count() === 0) {
-  if (Meteor.settings.defaultData) {
+if (Reviews.collection.find().count() === 0) {
+  if (Meteor.settings.reviewData) {
     console.log('Creating default data.');
-    Meteor.settings.defaultData.forEach(data => addData(data));
+    Meteor.settings.reviewData.forEach(data => addData(data));
   }
 }
