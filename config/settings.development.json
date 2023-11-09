@@ -3,7 +3,14 @@
     { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
     { "email": "john@foo.com", "password": "changeme" }
   ],
-
+  "reviewData": [
+    { "className": "ICS314",
+      "professor": "Cam Moore",
+      "reviewContent": "Great Class",
+      "rating": 5,
+      "reviewer": "john@foo.com"
+    }
+  ],
   "defaultData": [
     { "name": "Basket", "quantity": 3, "owner": "john@foo.com", "condition": "excellent" },
     { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
