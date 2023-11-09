@@ -28,6 +28,10 @@ const reviewSchema = new SimpleSchema({
     type: Number,
     allowedValues: [1, 2, 3, 4, 5],
   },
+  grade: {
+    type: String,
+    allowedValues: ['A', 'B', 'C', 'D', 'F', 'In-Progress A', 'In-Progress B', 'In-Progress C', 'In-Progress D', 'In-Progress F', 'Withdrew'],
+  },
   reviewContent: {
     type: String,
     optional: true,
@@ -40,10 +44,10 @@ const WriteReview = () => {
   let fRef = null;
 
   const submitReview = (data, formRef) => {
-    const { className, professor, reviewContent, rating } = data;
+    const { className, professor, reviewContent, rating, grade } = data;
     const reviewer = Meteor.user().username;
     Reviews.collection.insert(
-      { className, professor, reviewContent, rating, reviewer },
+      { className, professor, reviewContent, rating, grade, reviewer },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -65,7 +69,8 @@ const WriteReview = () => {
               <Card.Body>
                 <SelectField name="className" placeholder="Class Name" />
                 <SelectField name="professor" placeholder="Professor's Name" />
-                <SelectField name="rating" />
+                <SelectField name="rating" placeholder="Input your rating" />
+                <SelectField name="grade" placeholder="Input grade received" />
                 <TextField name="reviewContent" component="textarea" rows={4} placeholder="Write your review here" />
                 <SubmitField value="Submit Review" />
                 <ErrorsField />

@@ -8,6 +8,7 @@
       "professor": "Cam Moore",
       "reviewContent": "Great Class",
       "rating": 5,
+      "grade": "A",
       "reviewer": "john@foo.com"
     }
   ],
