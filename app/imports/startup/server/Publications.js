@@ -1,6 +1,14 @@
 import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 import { Stuffs } from '../../api/stuff/Stuff';
+import { Professors } from '../../api/professors/Professor';
+
+/** Publication to the professor documents (Cade) */
+// no need to be logged in
+// Just publishes everything
+Meteor.publish(Professors.publicationName, function () {
+  return Professors.collection.find({});
+});
 
 // User-level publication.
 // If logged in, then publish documents owned by this user. Otherwise, publish nothing.
