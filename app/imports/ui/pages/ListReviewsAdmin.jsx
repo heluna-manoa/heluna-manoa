@@ -3,7 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Col, Container, Row, Table } from 'react-bootstrap';
 import { Reviews } from '../../api/reviews/Review';
-import StuffItemAdmin from '../components/StuffItemAdmin';
+import ReviewAdmin from '../components/ReviewAdmin';
 import LoadingSpinner from '../components/LoadingSpinner';
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItemAdmin> to render each row. */
@@ -22,11 +22,11 @@ const ListReviewsAdmin = () => {
     };
   }, []);
   return (ready ? (
-    <Container classsName="py-3">
+    <Container className="py-3">
       <Row className="justify-content-center">
         <Col>
           <Col className="text-center">
-            <h2>List Contacts (Admin)</h2>
+            <h2>List Reviews (Admin)</h2>
           </Col>
           <Row xs={1} md={2} lg={3} className="g-4">
             {reviews.map((review) => (<Col key={review._id}><ReviewAdmin review={review} /></Col>))}
