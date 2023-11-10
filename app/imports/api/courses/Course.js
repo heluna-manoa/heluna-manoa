@@ -14,11 +14,11 @@ class CoursesCollection {
     this.schema = new SimpleSchema({
       name: String,
       title: String,
-      // professors: {
-      //   type: Array,
-      //   optional: true,
-      // },
-      // 'professors.$': String,
+      professors: {
+        type: Array,
+        optional: true,
+      },
+      'professors.$': String,
       credits: Number,
       _id: String,
     });

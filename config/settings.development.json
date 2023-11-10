@@ -12,7 +12,7 @@
   ],
 
   "defaultCourses": [
-    { "name":  "ICS314", "title":  "Introduction to Software Engineering", "credits":  3 },
-    { "name":  "ICS212", "title":  "Program Structure", "credits":  3 }
+    { "name":  "ICS314", "title":  "Introduction to Software Engineering", "professors": ["Carl", "Phil"], "credits":  3 },
+    { "name":  "ICS212", "title":  "Program Structure", "professors": ["Ravi"], "credits":  3 }
   ]
 }

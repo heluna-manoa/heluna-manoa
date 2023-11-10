@@ -33,10 +33,10 @@ const ListCourses = () => {
           <Table striped bordered hover>
             <thead>
               <tr>
-                <th>Name</th>
+                <th>Course</th>
                 <th>Title</th>
                 <th>Professors</th>
-                <th>Credit</th>
+                <th>Credits</th>
               </tr>
             </thead>
             <tbody>
