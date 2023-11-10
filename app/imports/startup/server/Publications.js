@@ -5,12 +5,9 @@ import { Courses } from '../../api/courses/Course';
 
 /** Publication to the course documents (Cade) */
 // I actually just need a collection of documents, no need to be logged in
-Meteor.publish(Courses.userPublicationName, function () {
-  if (this.userId) {
-    const username = Meteor.users.findOne(this.userId).username;
-    return Courses.collection.find({ owner: username });
-  }
-  return this.ready();
+// Just publishes everything
+Meteor.publish(Courses.publicationName, function () {
+  return Courses.collection.find();
 });
 
 // User-level publication.

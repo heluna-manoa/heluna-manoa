@@ -14,19 +14,20 @@ class CoursesCollection {
     this.schema = new SimpleSchema({
       name: String,
       title: String,
-      professors: {
-        type: Array,
-        optional: true,
-      },
-      'professors.$': String,
+      // professors: {
+      //   type: Array,
+      //   optional: true,
+      // },
+      // 'professors.$': String,
       credits: Number,
       _id: String,
     });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);
-    // Define names for publications and subscriptions, will have to edit this (Cade)
-    this.userPublicationName = `${this.name}.publication.user`;
-    this.adminPublicationName = `${this.name}.publication.admin`;
+    // Define names for publications and subscriptions, edited this
+    // this.userPublicationName = `${this.name}.publication.user`;
+    // this.adminPublicationName = `${this.name}.publication.admin`;
+    this.publicationName = `${this.name}.publication`;
   }
 }
 

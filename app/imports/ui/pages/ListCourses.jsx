@@ -12,8 +12,8 @@ const ListCourses = () => {
   const { ready, courses } = useTracker(() => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
-    // Get access to Stuff documents.
-    const subscription = Meteor.subscribe(Courses.userPublicationName);
+    // Get access to Course documents.
+    const subscription = Meteor.subscribe(Courses.publicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the Stuff documents
@@ -34,9 +34,9 @@ const ListCourses = () => {
             <thead>
               <tr>
                 <th>Name</th>
-                <th>Quantity</th>
-                <th>Condition</th>
-                <th>Edit</th>
+                <th>Title</th>
+                <th>Professors</th>
+                <th>Credit</th>
               </tr>
             </thead>
             <tbody>
