@@ -18,5 +18,9 @@
       "grade": "A",
       "reviewer": "admin@foo.com"
     }
+
+  "defaultCourses": [
+    { "name":  "ICS314", "title":  "Introduction to Software Engineering", "professors": ["Carl", "Phil"], "credits":  3 },
+    { "name":  "ICS212", "title":  "Program Structure", "professors": ["Ravi"], "credits":  3 }
   ]
 }
