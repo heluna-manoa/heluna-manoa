@@ -3,16 +3,20 @@
     { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
     { "email": "john@foo.com", "password": "changeme" }
   ],
-
-  "defaultData": [
-    { "name": "Basket", "quantity": 3, "owner": "john@foo.com", "condition": "excellent" },
-    { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
-    { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
-    { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
-  ],
-
-  "defaultCourses": [
-    { "name":  "ICS314", "title":  "Introduction to Software Engineering", "professors": ["Carl", "Phil"], "credits":  3 },
-    { "name":  "ICS212", "title":  "Program Structure", "professors": ["Ravi"], "credits":  3 }
+  "reviewData": [
+    { "courseName": "ICS314",
+      "professor": "Cam Moore",
+      "reviewContent": "Great Class",
+      "rating": 5,
+      "grade": "A",
+      "reviewer": "john@foo.com"
+    },
+    { "courseName": "ICS212",
+      "professor": "Ravi Narayan",
+      "reviewContent": "Great Class",
+      "rating": 5,
+      "grade": "A",
+      "reviewer": "admin@foo.com"
+    }
   ]
 }
