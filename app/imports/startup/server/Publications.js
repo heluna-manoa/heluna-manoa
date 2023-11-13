@@ -1,7 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 import { Reviews } from '../../api/reviews/Review';
-import { Stuffs } from '../../api/stuff/Stuff';
 import { Courses } from '../../api/courses/Course';
 
 /** Publication to the course documents (Cade) */

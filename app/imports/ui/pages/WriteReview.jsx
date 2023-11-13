@@ -1,43 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { Meteor } from 'meteor/meteor';
+import { useTracker } from 'meteor/react-meteor-data';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import SimpleSchema from 'simpl-schema';
 import { AutoForm, SelectField, SubmitField, TextField, ErrorsField } from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { Reviews } from '../../api/reviews/Review';
+import { Courses } from '../../api/courses/Course';
 
-const courses = [
-  { name: 'ICS314', professors: ['Cam Moore', 'Philip Johnson'] },
-  { name: 'ICS212', professors: ['Ravi Narayan', 'Blah Blah'] },
-];
-
-const allProfessors = courses.reduce((acc, courseItem) => acc.concat(courseItem.professors), []);
-
-const reviewSchema = new SimpleSchema({
-  courseName: {
-    type: String,
-    allowedValues: courses.map((courseItem) => courseItem.name),
-  },
-  professor: {
-    type: String,
-    allowedValues: allProfessors,
-  },
-  rating: {
-    type: Number,
-    allowedValues: [1, 2, 3, 4, 5],
-  },
-  grade: {
-    type: String,
-    allowedValues: ['A', 'B', 'C', 'D', 'F', 'In-Progress A', 'In-Progress B', 'In-Progress C', 'In-Progress D', 'In-Progress F', 'Withdrew'],
-  },
-  reviewContent: {
-    type: String,
-    optional: true,
-  },
-});
-
-const bridge = new SimpleSchema2Bridge(reviewSchema);
+// const courses = [
+//   { name: 'ICS314', professors: ['Cam Moore', 'Philip Johnson'] },
+//   { name: 'ICS212', professors: ['Ravi Narayan', 'Blah Blah'] },
+// ];
 
 const WriteReview = () => {
   let fRef = null;
@@ -45,8 +20,37 @@ const WriteReview = () => {
   const [selectedProfessor, setSelectedProfessor] = useState('');
   const [allowedProfessors, setAllowedProfessors] = useState([]);
 
+  const courseItems = useTracker(() => {
+    const subscription = Meteor.subscribe(Courses.publicationName);
+    return subscription.ready() ? Courses.collection.find({}).fetch() : [];
+  }, []);
+  const allProfessors = courseItems.reduce((acc, courseItem) => acc.concat(courseItem.professors), []);
+  const reviewSchema = new SimpleSchema({
+    courseName: {
+      type: String,
+      allowedValues: courseItems.map((courseItem) => courseItem.name),
+    },
+    professor: {
+      type: String,
+      allowedValues: allProfessors,
+    },
+    rating: {
+      type: Number,
+      allowedValues: [1, 2, 3, 4, 5],
+    },
+    grade: {
+      type: String,
+      allowedValues: ['A', 'B', 'C', 'D', 'F', 'In-Progress A', 'In-Progress B', 'In-Progress C', 'In-Progress D', 'In-Progress F', 'Withdrew'],
+    },
+    reviewContent: {
+      type: String,
+      optional: true,
+    },
+  });
+
+  const bridge = new SimpleSchema2Bridge(reviewSchema);
   useEffect(() => {
-    const courseObj = courses.find(c => c.name === selectedCourse);
+    const courseObj = courseItems.find(c => c.name === selectedCourse);
     if (courseObj) {
       setAllowedProfessors(courseObj.professors);
     } else {
