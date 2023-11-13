@@ -10,7 +10,7 @@ const addData = (data) => {
   Reviews.collection.insert(data);
 };
 
-// Initialize the ReviewCollection if empty.
+// Initialize the ReviewsCollection if empty.
 if (Reviews.collection.find().count() === 0) {
   if (Meteor.settings.reviewData) {
     console.log('Creating review data.');
