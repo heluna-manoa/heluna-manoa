@@ -3,16 +3,11 @@ import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import SimpleSchema from 'simpl-schema';
-import { AutoForm, SelectField, SubmitField, TextField, ErrorsField } from 'uniforms-bootstrap5';
+import { AutoForm, SelectField, SubmitField, TextField, ErrorsField, BoolField } from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { Reviews } from '../../api/reviews/Review';
 import { Courses } from '../../api/courses/Course';
-
-// const courses = [
-//   { name: 'ICS314', professors: ['Cam Moore', 'Philip Johnson'] },
-//   { name: 'ICS212', professors: ['Ravi Narayan', 'Blah Blah'] },
-// ];
 
 const WriteReview = () => {
   let fRef = null;
@@ -34,6 +29,10 @@ const WriteReview = () => {
       type: String,
       allowedValues: allProfessors,
     },
+    semesterTaken: {
+      type: String,
+      allowedValues: ['Spring 2024', 'Fall 2023', 'Summer 2023', 'Spring 2023', 'Fall 2022'],
+    },
     rating: {
       type: Number,
       allowedValues: [1, 2, 3, 4, 5],
@@ -45,6 +44,10 @@ const WriteReview = () => {
     reviewContent: {
       type: String,
       optional: true,
+    },
+    anonymous: {
+      type: Boolean,
+      defaultValue: false,
     },
   });
 
@@ -63,10 +66,10 @@ const WriteReview = () => {
   }, [selectedCourse]);
 
   const submitReview = (data, formRef) => {
-    const { courseName, professor, reviewContent, rating, grade } = data;
+    const { courseName, professor, semesterTaken, reviewContent, rating, grade, anonymous } = data;
     const reviewer = Meteor.user().username;
     Reviews.collection.insert(
-      { courseName, professor, reviewContent, rating, grade, reviewer },
+      { courseName, professor, semesterTaken, reviewContent, rating, grade, reviewer, anonymous },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -108,9 +111,11 @@ const WriteReview = () => {
                   onChange={onProfessorChange}
                   allowedValues={allowedProfessors}
                 />
+                <SelectField name="semesterTaken" placeholder="Semester Taken" />
                 <SelectField name="rating" placeholder="Input your rating" />
                 <SelectField name="grade" placeholder="Input grade received" />
                 <TextField name="reviewContent" component="textarea" rows={4} placeholder="Write your review here" />
+                <BoolField name="anonymous" component="switch" label="Submit Anonymously?" />
                 <SubmitField value="Submit Review" />
                 <ErrorsField />
               </Card.Body>
