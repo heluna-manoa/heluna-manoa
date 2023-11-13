@@ -11,7 +11,7 @@ const renderProfessors = (professors) => {
   return 'No Professors';
 };
 
-/** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
+/** Renders a single row in the List Courses table. See pages/ListCourses.jsx. */
 const CourseItem = ({ course }) => (
   <tr>
     <td>{course.name}</td>
