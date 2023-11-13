@@ -3,22 +3,22 @@ import { Meteor } from 'meteor/meteor';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import LoadingSpinner from '../components/LoadingSpinner';
-import { Courses } from '../../api/courses/Course';
 import ReviewCard from '../components/ReviewCard';
+import { Reviews } from '../../api/reviews/Review';
 
 const UserReviews = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
-  const { ready, courses } = useTracker(() => {
+  const { ready, reviews } = useTracker(() => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
     // Get access to Course documents.
-    const subscription = Meteor.subscribe(Courses.publicationName);
+    const subscription = Meteor.subscribe(Reviews.userPublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the Stuff documents
-    const courseItems = Courses.collection.find({}).fetch();
+    const reviewItems = Reviews.collection.find({}).fetch();
     return {
-      courses: courseItems,
+      reviews: reviewItems,
       ready: rdy,
     };
   }, []);
@@ -30,7 +30,7 @@ const UserReviews = () => {
             <h2>Your Reviews</h2>
           </Col>
           <Row xs={1} md={2} lg={3} className="g-4">
-            {courses.map((course) => (<Col key={course._id}><ReviewCard course={course} /></Col>))}
+            {reviews.map((review) => (<Col key={review._id}><ReviewCard review={review} /></Col>))}
           </Row>
         </Col>
       </Row>
