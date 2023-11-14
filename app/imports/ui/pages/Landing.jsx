@@ -19,13 +19,13 @@ const Landing = () => {
         <Col>
           <h2>Search by Course</h2>
           <form method="get" action="/searchcourse">
-            <input type="search" id="course-search" name="keyword" />
+            <input type="search" id="course-search" name="course" />
           </form>
         </Col>
         <Col>
           <h2>Search by Professor</h2>
           <form method="get" action="/searchcourse">
-            <input type="search" id="prof-search" name="keyword" />
+            <input type="search" id="prof-search" name="professor" />
           </form>
         </Col>
       </Row>
