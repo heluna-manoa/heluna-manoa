@@ -16,7 +16,8 @@ const UserReviews = () => {
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the Stuff documents
-    const reviewItems = Reviews.collection.find({}).fetch();
+    const userName = Meteor.user().username;
+    const reviewItems = Reviews.collection.find({ reviewer: userName }).fetch();
     return {
       reviews: reviewItems,
       ready: rdy,
