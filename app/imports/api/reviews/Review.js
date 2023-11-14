@@ -11,9 +11,11 @@ class ReviewCollection {
     this.schema = new SimpleSchema({
       courseName: String,
       professor: String,
+      semesterTaken: String,
       reviewContent: String,
       rating: Number,
       grade: String,
+      anonymous: Boolean,
       reviewer: String,
     });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
