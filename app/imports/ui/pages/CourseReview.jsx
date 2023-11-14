@@ -44,8 +44,10 @@ const CourseReview = () => {
         <Col md={7}>
           <Col className="text-center">
             <h2>Course Review</h2>
-            {reviewsFiltered.map((review) => <ReviewCard review={review} />)}
           </Col>
+          <Row xs={1} md={2} lg={3} className="g-4">
+            {reviewsFiltered.map((review) => <ReviewCard review={review} />)}
+          </Row>
         </Col>
       </Row>
     </Container>
