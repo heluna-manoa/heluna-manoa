@@ -34,5 +34,16 @@
     { "name":  "ICS311", "title":  "Algorithms", "professors": ["DB Conner", "N S Sitchinava"], "credits":  4 },
     { "name":  "ICS314", "title":  "Introduction to Software Engineering", "professors": ["Cam Moore", "Philip Johnson", "Dan Port"], "credits":  3 },
     { "name":  "ICS332", "title":  "Operating Systems", "professors": ["Ravi Narayan"], "credits":  3 }
+  ],
+  "defaultProfessors": [
+    { "name":  "Ravi Narayan", "courses": ["ICS 332", "ICS 212"] },
+    { "name":  "Cam Moore", "courses": ["ICS 111", "ICS 314"] },
+    { "name":  "Philip Johnson", "courses": ["ICS 314"] },
+    { "name":  "N S Sitchinava", "courses": ["ICS 311"] },
+    { "name":  "Kyungim Baek", "courses": ["ICS 235"] },
+    { "name":  "K Tarrit Mirakhorli", "courses": ["ICS 212"] },
+    { "name":  "Edoardo Biagioni", "courses": ["ICS 211"] },
+    { "name":  "Depeng Li", "courses": ["ICS 141", "ICS 241"] },
+    { "name":  "S P Robertson", "courses": ["ICS 111"] }
   ]
 }
