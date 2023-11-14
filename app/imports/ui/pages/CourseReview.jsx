@@ -32,7 +32,7 @@ const CourseReview = () => {
   }, []);
 
   // Filter reviews based on the provided courseName
-  const reviewsFiltered = reviews.filter((review) => review.name === courseName);
+  const reviewsFiltered = reviews.filter((review) => review.courseName === courseName);
   const chosenCourse = courses.find((course) => course.name === courseName);
 
   return (ready ? (
