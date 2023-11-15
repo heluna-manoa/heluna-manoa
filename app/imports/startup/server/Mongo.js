@@ -35,7 +35,7 @@ if (Courses.collection.find().count() === 0) {
 }
 // Initialize the database with default professors
 const addProfessor = (professor) => {
-  console.log(`  Adding: ${professor.name}`);
+  console.log(`  Adding: ${professor.profName}`);
   Professors.collection.insert(professor);
 };
 

@@ -17,6 +17,7 @@ import WriteReview from '../pages/WriteReview';
 import ListCourses from '../pages/ListCourses';
 import UserReviews from '../pages/UserReviews';
 import CourseReview from '../pages/CourseReview';
+import AdminAddCourse from '../pages/AdminAddCourse';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -38,6 +39,7 @@ const App = () => {
           <Route path="/signout" element={<SignOut />} />
           <Route path="/home" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
           <Route path="/write" element={<ProtectedRoute><WriteReview /></ProtectedRoute>} />
+          <Route path="/addprof" element={<ProtectedRoute><AdminAddCourse /></ProtectedRoute>} />
           <Route path="/searchcourse/" element={<ProtectedRoute><ListCourses /></ProtectedRoute>} />
           <Route path="/coursereview/:courseName" element={<ProtectedRoute><CourseReview /></ProtectedRoute>} />
           <Route path="/userreviews" element={<ProtectedRoute><UserReviews /></ProtectedRoute>} />
