@@ -15,10 +15,11 @@ const renderProfessors = (professors) => {
 
 /** Renders a single row in the List Courses table. See pages/ListCourses.jsx. */
 const CourseItemAdmin = ({ course }) => {
-  removeCourse = (docID) => {
+  const removeCourse = (docID) => {
     console.log(`The item to remove is ${docID}`);
+    // eslint-disable-next-line no-undef
     collection.remove(docID);
-  }
+  };
   return (
     <tr>
       <td>{course.name}</td>
@@ -40,6 +41,7 @@ CourseItemAdmin.propTypes = {
     credits: PropTypes.number,
     _id: PropTypes.string,
   }).isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
   collection: PropTypes.object.isRequired,
 };
 
