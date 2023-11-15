@@ -42,13 +42,13 @@ const EditCourse = () => {
     <Container className="py-3">
       <Row className="justify-content-center">
         <Col xs={5}>
-          <Col className="text-center"><h2>Edit Stuff</h2></Col>
+          <Col className="text-center"><h2>Edit Course</h2></Col>
           <AutoForm schema={bridge} onSubmit={data => submit(data)} model={doc}>
             <Card>
               <Card.Body>
                 <TextField name="name" />
                 <TextField name="title" />
-                <TextField name="professor" />
+                <TextField name="professors" />
                 <NumField name="credits" decimal={null} />
                 <SubmitField value="Submit" />
                 <ErrorsField />
