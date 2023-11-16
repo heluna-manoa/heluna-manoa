@@ -16,6 +16,8 @@ import LoadingSpinner from '../components/LoadingSpinner';
 import WriteReview from '../pages/WriteReview';
 import ListCourses from '../pages/ListCourses';
 import UserReviews from '../pages/UserReviews';
+import EditCourse from '../pages/EditCourse';
+import ListCoursesAdmin from '../pages/ListCoursesAdmin';
 import CourseReview from '../pages/CourseReview';
 import AdminAddCourse from '../pages/AdminAddCourse';
 
@@ -39,8 +41,10 @@ const App = () => {
           <Route path="/signout" element={<SignOut />} />
           <Route path="/home" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
           <Route path="/write" element={<ProtectedRoute><WriteReview /></ProtectedRoute>} />
+          <Route path="/searchcourse" element={<ProtectedRoute><ListCourses /></ProtectedRoute>} />
+          <Route path="/courseadmin" element={<AdminProtectedRoute ready={ready}><ListCoursesAdmin /></AdminProtectedRoute>} />
+          <Route path="/edit/:_id" element={<AdminProtectedRoute ready={ready}><EditCourse /></AdminProtectedRoute>} />
           <Route path="/addprof" element={<ProtectedRoute><AdminAddCourse /></ProtectedRoute>} />
-          <Route path="/searchcourse/" element={<ProtectedRoute><ListCourses /></ProtectedRoute>} />
           <Route path="/coursereview/:courseName" element={<ProtectedRoute><CourseReview /></ProtectedRoute>} />
           <Route path="/userreviews" element={<ProtectedRoute><UserReviews /></ProtectedRoute>} />
           <Route path="/notauthorized" element={<NotAuthorized />} />
