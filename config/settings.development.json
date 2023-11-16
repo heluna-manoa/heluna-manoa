@@ -22,8 +22,7 @@
       "anonymous": false,
       "reviewer": "admin@foo.com"
     }
-    ],
-
+  ],
   "defaultCourses": [
     { "name":  "ICS111", "title":  "Intro to Computer Science I", "professors": ["Edoardo Biagioni", "Cam Moore", "S P Robertson"], "credits":  4 },
     { "name":  "ICS141", "title":  "Discrete Math for CS I", "professors": ["Depeng Li"], "credits":  3 },
