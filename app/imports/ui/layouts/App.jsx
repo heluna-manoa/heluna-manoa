@@ -18,6 +18,8 @@ import ListCourses from '../pages/ListCourses';
 import UserReviews from '../pages/UserReviews';
 import EditCourse from '../pages/EditCourse';
 import ListCoursesAdmin from '../pages/ListCoursesAdmin';
+import CourseReview from '../pages/CourseReview';
+import AdminAddCourse from '../pages/AdminAddCourse';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -42,6 +44,8 @@ const App = () => {
           <Route path="/searchcourse" element={<ProtectedRoute><ListCourses /></ProtectedRoute>} />
           <Route path="/courseadmin" element={<AdminProtectedRoute ready={ready}><ListCoursesAdmin /></AdminProtectedRoute>} />
           <Route path="/edit/:_id" element={<AdminProtectedRoute ready={ready}><EditCourse /></AdminProtectedRoute>} />
+          <Route path="/addprof" element={<ProtectedRoute><AdminAddCourse /></ProtectedRoute>} />
+          <Route path="/coursereview/:courseName" element={<ProtectedRoute><CourseReview /></ProtectedRoute>} />
           <Route path="/userreviews" element={<ProtectedRoute><UserReviews /></ProtectedRoute>} />
           <Route path="/notauthorized" element={<NotAuthorized />} />
           <Route path="*" element={<NotFound />} />

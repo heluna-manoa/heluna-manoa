@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Reviews } from '../../api/reviews/Review.js';
 import { Courses } from '../../api/courses/Course';
+import { Professors } from '../../api/professors/Professor';
 
 /* eslint-disable no-console */
 
@@ -30,5 +31,18 @@ if (Courses.collection.find().count() === 0) {
   if (Meteor.settings.defaultCourses) {
     console.log('Creating default course.');
     Meteor.settings.defaultCourses.forEach(course => addCourse(course));
+  }
+}
+// Initialize the database with default professors
+const addProfessor = (professor) => {
+  console.log(`  Adding: ${professor.profName}`);
+  Professors.collection.insert(professor);
+};
+
+// Initialize the ReviewCollection if empty.
+if (Professors.collection.find().count() === 0) {
+  if (Meteor.settings.defaultProfessors) {
+    console.log('Creating default professor.');
+    Meteor.settings.defaultProfessors.forEach(professor => addProfessor(professor));
   }
 }

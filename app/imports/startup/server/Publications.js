@@ -2,12 +2,17 @@ import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 import { Reviews } from '../../api/reviews/Review';
 import { Courses } from '../../api/courses/Course';
+import { Professors } from '../../api/professors/Professor';
 
 /** Publication to the course documents (Cade) */
 // I actually just need a collection of documents, no need to be logged in
 // Just publishes everything
 Meteor.publish(Courses.publicationName, function () {
   return Courses.collection.find();
+});
+
+Meteor.publish(Professors.publicationName, function () {
+  return Professors.collection.find();
 });
 
 // User-level publication.
