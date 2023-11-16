@@ -2,6 +2,9 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Col, Container, Row } from 'react-bootstrap';
+import ReviewCard from '../components/ReviewCard';
+import LoadingSpinner from '../components/LoadingSpinner';
+import DisplayReviews from '../components/DisplayReviews';
 
 /* A simple static component to render some text for the landing page. */
 const Landing = () => {
@@ -48,6 +51,13 @@ const Landing = () => {
           </Col>
         </Row>
       )}
+      <Row className="align-middle text-center">
+        {currentUser === '' ? (
+          <h1>No Reviews</h1>
+        ) : (
+          <DisplayReviews />
+        )}
+      </Row>
     </Container>
   );
 };
