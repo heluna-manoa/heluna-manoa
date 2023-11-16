@@ -2,6 +2,7 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import { NavLink } from 'react-router-dom';
+import { Roles } from 'meteor/alanning:roles';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { BoxArrowRight, PersonFill, PersonPlusFill } from 'react-bootstrap-icons';
 import { Roles } from 'meteor/alanning:roles';
@@ -29,9 +30,8 @@ const NavBar = () => {
             {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
               <Nav.Link id="search-admin-nav" as={NavLink} to="/courseadmin" key="courseadmin">Search Courses Admin</Nav.Link>
             ) : ''}
-            {/* {Roles.userIsInRole(Meteor.userId(), 'admin') ? ( */}
-            {/*  <Nav.Link id="write-nav" as={NavLink} to="/admin" key="admin">Admin</Nav.Link> */}
-            {/* ) : ''} */}
+            {Roles.userIsInRole(Meteor.userId(), 'admin') ? (<Nav.Link id="addprof" as={NavLink} to="/addprof" key="addprof">Add Course</Nav.Link>
+            ) : ''},
           </Nav>
           <Nav className="justify-content-end">
             {currentUser === '' ? (

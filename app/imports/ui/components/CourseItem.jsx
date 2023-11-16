@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 /** A function to render the professors. If no professors, write No professors */
 const renderProfessors = (professors) => {
@@ -14,7 +15,11 @@ const renderProfessors = (professors) => {
 /** Renders a single row in the List Courses table. See pages/ListCourses.jsx. */
 const CourseItem = ({ course }) => (
   <tr>
-    <td>{course.name}</td>
+    <td>
+      <Link to={`/coursereview/${course.name}`}>
+        {course.name}
+      </Link>
+    </td>
     <td>{course.title}</td>
     <td>{renderProfessors(course.professors)}</td>
     <td>{course.credits}</td>
