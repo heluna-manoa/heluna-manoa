@@ -1,15 +1,15 @@
 import React from 'react';
 import swal from 'sweetalert';
-import { Card, Col, Container, Row } from 'react-bootstrap';
+import { Button, Card, Col, Container, Row } from 'react-bootstrap';
 import { AutoForm, ErrorsField, LongTextField, SelectField, SubmitField } from 'uniforms-bootstrap5';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
+import SimpleSchema from 'simpl-schema';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { useParams } from 'react-router';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Reviews } from '../../api/reviews/Review';
-
-const bridge = new SimpleSchema2Bridge(Reviews.schema);
+import { Link } from 'react-router-dom';
 
 /* Renders the EditContact page for editing a single document. */
 const EditReview = () => {
@@ -29,11 +29,32 @@ const EditReview = () => {
       ready: rdy,
     };
   }, [_id]);
+
+  const editSchema = new SimpleSchema({
+    rating: {
+      type: Number,
+      allowedValues: [1, 2, 3, 4, 5],
+    },
+    grade: {
+      type: String,
+      allowedValues: ['A', 'B', 'C', 'D', 'F', 'In-Progress A', 'In-Progress B', 'In-Progress C', 'In-Progress D', 'In-Progress F', 'Withdrew'],
+    },
+    reviewContent: {
+      type: String,
+      optional: true,
+    },
+    anonymous: {
+      type: Boolean,
+      defaultValue: false,
+    },
+  });
+
+  const bridge = new SimpleSchema2Bridge(editSchema);
   // console.log('EditReview', doc, ready);
   // On successful submit, insert the data.
   const submit = (data) => {
-    const { reviewContent, rating, grade } = data;
-    Reviews.collection.update(_id, { $set: { reviewContent, rating, grade } }, (error) => (error ?
+    const { courseName, reviewContent, rating, grade } = data;
+    Reviews.collection.update(_id, { $set: { courseName, reviewContent, rating, grade } }, (error) => (error ?
       swal('Error', error.message, 'error') :
       swal('Success', 'Review updated successfully', 'success')));
   };
@@ -46,6 +67,7 @@ const EditReview = () => {
           <AutoForm schema={bridge} onSubmit={data => submit(data)} model={doc}>
             <Card>
               <Card.Body>
+                <Row><h1>{doc.courseName}</h1></Row>
                 <Row>
                   <Col><SelectField name="rating" /></Col>
                 </Row>
@@ -56,6 +78,7 @@ const EditReview = () => {
                   <Col><LongTextField name="reviewContent" /></Col>
                 </Row>
                 <SubmitField value="Submit" />
+                <Link to={`/userreviews`}><Button variant="warning">Cancel</Button></Link>
                 <ErrorsField />
               </Card.Body>
             </Card>
