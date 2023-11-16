@@ -1,18 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const ReviewCard = ({ review }) => (
   <Card className="h-100">
     <Card.Header>
-      <Card.Title> {review.rating} <br /> {review.courseName} <br /> {review.professor}
+      <Card.Title> Rating: {review.rating} <br /> {review.courseName} <br /> {review.professor}
       </Card.Title>
     </Card.Header>
     <Card.Body>
       <Card.Text>{review.reviewContent}</Card.Text>
       <Card.Subtitle>
-        {review.grade} <br /> {review.reviewer}
+        Grade: {review.grade} <br /> <i>{review.reviewer}</i>
       </Card.Subtitle>
+      <Link to={`/editreview/${review._id}`}>Edit</Link>
     </Card.Body>
   </Card>
 );
