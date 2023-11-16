@@ -18,11 +18,15 @@ const Landing = () => {
       <Row className="align-middle text-center">
         <Col>
           <h2>Search by Course</h2>
-          <input type="text" />
+          <form method="get" action="/searchcourse">
+            <input type="search" id="course-search" name="course" />
+          </form>
         </Col>
         <Col>
           <h2>Search by Professor</h2>
-          <input type="text" />
+          <form method="get" action="/searchcourse">
+            <input type="search" id="prof-search" name="professor" />
+          </form>
         </Col>
       </Row>
       {currentUser === '' ? (
