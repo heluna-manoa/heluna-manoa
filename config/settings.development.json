@@ -36,14 +36,14 @@
     { "name":  "ICS332", "title":  "Operating Systems", "professors": ["Ravi Narayan"], "credits":  3 }
   ],
   "defaultProfessors": [
-    { "name":  "Ravi Narayan", "courses": ["ICS 332", "ICS 212"] },
-    { "name":  "Cam Moore", "courses": ["ICS 111", "ICS 314"] },
-    { "name":  "Philip Johnson", "courses": ["ICS 314"] },
-    { "name":  "N S Sitchinava", "courses": ["ICS 311"] },
-    { "name":  "Kyungim Baek", "courses": ["ICS 235"] },
-    { "name":  "K Tarrit Mirakhorli", "courses": ["ICS 212"] },
-    { "name":  "Edoardo Biagioni", "courses": ["ICS 211"] },
-    { "name":  "Depeng Li", "courses": ["ICS 141", "ICS 241"] },
-    { "name":  "S P Robertson", "courses": ["ICS 111"] }
+    { "profName":  "Ravi Narayan", "courses": ["ICS 332", "ICS 212"] },
+    { "profName":  "Cam Moore", "courses": ["ICS 111", "ICS 314"] },
+    { "profName":  "Philip Johnson", "courses": ["ICS 314"] },
+    { "profName":  "N S Sitchinava", "courses": ["ICS 311"] },
+    { "profName":  "Kyungim Baek", "courses": ["ICS 235"] },
+    { "profName":  "K Tarrit Mirakhorli", "courses": ["ICS 212"] },
+    { "profName":  "Edoardo Biagioni", "courses": ["ICS 211"] },
+    { "profName":  "Depeng Li", "courses": ["ICS 141", "ICS 241"] },
+    { "profName":  "S P Robertson", "courses": ["ICS 111"] }
   ]
 }
