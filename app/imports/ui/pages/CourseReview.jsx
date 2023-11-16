@@ -5,7 +5,6 @@ import { useTracker } from 'meteor/react-meteor-data';
 import { useParams } from 'react-router';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Courses } from '../../api/courses/Course';
-import CourseItem from '../components/CourseItem';
 import { Reviews } from '../../api/reviews/Review';
 import ReviewCard from '../components/ReviewCard';
 
@@ -34,21 +33,30 @@ const CourseReview = () => {
   // Filter reviews based on the provided courseName
   const reviewsFiltered = reviews.filter((review) => review.courseName === courseName);
   const chosenCourse = courses.find((course) => course.name === courseName);
+  // Calculate the average rating given to the course
+  const avgRating = reviewsFiltered.reduce((memo, review) => (memo + review.rating), 0) / reviewsFiltered.length;
 
   return (ready ? (
     <Container className="py-3">
       <Row className="justify-content-center">
-        <Col md={7}>
-          <CourseItem key={chosenCourse._id} course={chosenCourse} />
+        <Col className="text-center">
+          <h1>Review of {chosenCourse.name}</h1>
+          <h2>{chosenCourse.title}</h2>
         </Col>
-        <Col md={7}>
-          <Col className="text-center">
-            <h2>Course Review</h2>
-          </Col>
-          <Row xs={1} md={2} lg={3} className="g-4">
-            {reviewsFiltered.map((review) => <ReviewCard review={review} />)}
-          </Row>
+      </Row>
+      <Row>
+        <Col className="text-center">
+          <h2>{chosenCourse.credits} Credits</h2>
         </Col>
+        <Col className="text-center">
+          {chosenCourse.professors.map((professor) => <h3>{professor}</h3>)}
+        </Col>
+        <Col className="text-center">
+          <h2>Average Rating: {avgRating}</h2>
+        </Col>
+      </Row>
+      <Row xs={1} md={2} lg={3} className="g-4">
+        {reviewsFiltered.map((review) => (<Col key={review._id}><ReviewCard review={review} /></Col>))}
       </Row>
     </Container>
   ) : <LoadingSpinner />);
