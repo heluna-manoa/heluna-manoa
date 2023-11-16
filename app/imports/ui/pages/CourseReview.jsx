@@ -46,9 +46,10 @@ const CourseReview = () => {
       </Row>
       <Row>
         <Col className="text-center">
-          <h2>{chosenCourse.credits} Credits</h2>
+          <h2>Credits: {chosenCourse.credits}</h2>
         </Col>
         <Col className="text-center">
+          <h2>Professors:</h2>
           {chosenCourse.professors.map((professor) => <h3>{professor}</h3>)}
         </Col>
         <Col className="text-center">
