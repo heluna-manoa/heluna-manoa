@@ -28,13 +28,12 @@ const UserReviews = () => {
     <Container className="py-3">
       <Row>
         <Col className="format-align-center">
-          {reviews.map((review) => (<Col key={review._id}><ReviewCard review={review} /></Col>))}
+          {reviews.map((review) => (<Col key={review.course} className="my-3"><ReviewCard review={review} /></Col>))}
         </Col>
         <Col className="format-align-center">
-          {reviews.map((review) => (<Col key={review._id}><ReviewCardProfessor review={review} /></Col>))}
+          {reviews.map((review) => (<Col key={review.professor} className="my-3"><ReviewCardProfessor review={review} /></Col>))}
         </Col>
       </Row>
-
     </Container>
   ) : <LoadingSpinner />);
 };
