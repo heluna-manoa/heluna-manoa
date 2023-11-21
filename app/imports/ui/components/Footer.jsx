@@ -14,8 +14,8 @@ const Footer = () => (
         Honolulu, HI 96822
         {' '}
         <br />
-        <a href="http://ics-software-engineering.github.io/meteor-application-template-react">
-          Template Home
+        <a href="https://github.com/heluna-manoa/heluna-manoa.github.io">
+          Heluna Manoa Project Home
           Page
         </a>
       </Col>
