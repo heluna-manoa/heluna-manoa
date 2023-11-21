@@ -77,7 +77,7 @@ const EditReview = () => {
                 <Row>
                   <Col><LongTextField name="reviewContent" /></Col>
                 </Row>
-                <SubmitField value="Submit" />
+                <SubmitField value="Update" />
                 <Link to={`/userreviews`}><Button variant="warning">Cancel</Button></Link>
                 <ErrorsField />
               </Card.Body>

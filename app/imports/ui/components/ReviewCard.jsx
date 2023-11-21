@@ -2,23 +2,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { Star, Trash } from 'react-bootstrap-icons';
+import { Trash } from 'react-bootstrap-icons';
 import { Reviews } from '../../api/reviews/Review';
 
-const ReviewCard = ({ review }) => {
+const displayStars = (review) => {
+  const stars = [];
+  for (let i = 0; i < review.rating; i++) {
+    stars.push(<span> ★ </span>);
+  }
+  return stars;
+};
 
-  const stars = () => {
-    for (let i = 0; i < 5; i++) {
-      <span key={index}>{professor}{index !== professors.length - 1 ? ', ' : ''}</span>
-    }
-  };
+const ReviewCard = ({ review }) => {
   const removeReview = (collection, docID) => {
     collection.remove(docID);
   };
   return (
     <Card className="h-100">
       <Card.Header>
-        <Card.Title> {stars()} <br /> {review.courseName} <br /> {review.professor}
+        <Card.Title> {displayStars(review)} <br /> {review.courseName} <br /> {review.professor}
         </Card.Title>
       </Card.Header>
       <Card.Body>
