@@ -7,9 +7,9 @@ import { useTracker } from 'meteor/react-meteor-data';
 import SimpleSchema from 'simpl-schema';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { useParams } from 'react-router';
+import { Link, Navigate } from 'react-router-dom';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Reviews } from '../../api/reviews/Review';
-import { Link, Navigate } from 'react-router-dom';
 
 /* Renders the EditContact page for editing a single document. */
 const EditReview = () => {
@@ -86,7 +86,7 @@ const EditReview = () => {
                   <Col><LongTextField name="reviewContent" /></Col>
                 </Row>
                 <SubmitField value="Update" />
-                <Link to={`/userreviews`}><Button variant="warning">Cancel</Button></Link>
+                <Link to="/userreviews"><Button variant="warning">Cancel</Button></Link>
                 <ErrorsField />
               </Card.Body>
             </Card>
