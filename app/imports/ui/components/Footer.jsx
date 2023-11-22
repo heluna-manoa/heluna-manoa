@@ -6,7 +6,7 @@ const Footer = () => (
   <footer className="mt-auto py-3 bg-light">
     <Container>
       <Col className="text-center">
-        Department of Information and Computer Sciences
+        Team Five Guys
         {' '}
         <br />
         University of Hawaii
@@ -15,8 +15,7 @@ const Footer = () => (
         {' '}
         <br />
         <a href="https://github.com/heluna-manoa/heluna-manoa.github.io">
-          Heluna Manoa Project Home
-          Page
+          About Heluna Manoa
         </a>
       </Col>
     </Container>
