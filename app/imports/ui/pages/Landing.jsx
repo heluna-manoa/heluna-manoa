@@ -5,6 +5,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import ReviewCard from '../components/ReviewCard';
 import LoadingSpinner from '../components/LoadingSpinner';
 import DisplayReviews from '../components/DisplayReviews';
+import SearchBar from '../components/SearchBar';
 
 /* A simple static component to render some text for the landing page. */
 const Landing = () => {
@@ -21,9 +22,7 @@ const Landing = () => {
       <Row className="align-middle text-center">
         <Col>
           <h2>Search by Course</h2>
-          <form method="get" action="/searchcourse">
-            <input type="search" id="course-search" name="course" />
-          </form>
+          <SearchBar />
         </Col>
         <Col>
           <h2>Search by Professor</h2>
