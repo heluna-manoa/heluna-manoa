@@ -2,8 +2,6 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Col, Container, Row } from 'react-bootstrap';
-import ReviewCard from '../components/ReviewCard';
-import LoadingSpinner from '../components/LoadingSpinner';
 import DisplayReviews from '../components/DisplayReviews';
 import SearchBar from '../components/SearchBar';
 
