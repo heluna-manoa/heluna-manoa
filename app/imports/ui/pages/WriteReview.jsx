@@ -48,6 +48,7 @@ const WriteReview = () => {
     anonymous: {
       type: Boolean,
       defaultValue: false,
+      optional: true,
     },
   });
 
