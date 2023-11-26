@@ -44,10 +44,10 @@ const Landing = () => {
       ) : (
         <Row className="align-middle text-center">
           <Col>
-            <h2>My Courses</h2>
+            <h2>My Course Reviews</h2>
           </Col>
           <Col>
-            <h2>My Professors</h2>
+            <h2>My Professor Reviews</h2>
           </Col>
         </Row>
       )}
