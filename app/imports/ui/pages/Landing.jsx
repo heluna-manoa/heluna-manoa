@@ -2,6 +2,7 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Col, Container, Row } from 'react-bootstrap';
+import SearchBar from '../components/SearchBar';
 
 /* A simple static component to render some text for the landing page. */
 const Landing = () => {
@@ -18,9 +19,7 @@ const Landing = () => {
       <Row className="align-middle text-center">
         <Col>
           <h2>Search by Course</h2>
-          <form method="get" action="/searchcourse">
-            <input type="search" id="course-search" name="course" />
-          </form>
+          <SearchBar />
         </Col>
         <Col>
           <h2>Search by Professor</h2>
