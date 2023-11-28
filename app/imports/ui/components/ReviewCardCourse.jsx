@@ -20,7 +20,9 @@ const ReviewCardCourse = ({ review }) => (
     <Card.Body>
       <Card.Text>{review.reviewContent}</Card.Text>
       <Card.Subtitle>
-        Grade: {review.grade} <br /> <i>{review.reviewer}</i>
+        Grade: {review.grade}
+        <br />
+        {review.anonymous ? (<i>Anonymous</i>) : (<i>{review.reviewer}</i>)}
       </Card.Subtitle>
     </Card.Body>
   </Card>
@@ -35,6 +37,7 @@ ReviewCardCourse.propTypes = {
     rating: PropTypes.number,
     grade: PropTypes.string,
     reviewer: PropTypes.string,
+    anonymous: PropTypes.bool,
     _id: PropTypes.string,
   }).isRequired,
 };

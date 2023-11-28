@@ -26,7 +26,9 @@ const ReviewCard = ({ review }) => {
       <Card.Body>
         <Card.Text>{review.reviewContent}</Card.Text>
         <Card.Subtitle>
-          Grade: {review.grade} <br /> <i>{review.reviewer}</i>
+          Grade: {review.grade}
+          <br />
+          <i>{review.reviewer}</i>{review.anonymous ? (' [Name Displayed]') : (' [Review Anonymous]')}
         </Card.Subtitle>
         <Link to={`/editreview/${review._id}`}><Button variant="warning">Edit</Button></Link>
         <Button variant="danger" onClick={() => removeReview(Reviews.collection, review._id)}><Trash /></Button>
@@ -44,6 +46,7 @@ ReviewCard.propTypes = {
     rating: PropTypes.number,
     grade: PropTypes.string,
     reviewer: PropTypes.string,
+    anonymous: PropTypes.bool,
     _id: PropTypes.string,
   }).isRequired,
 };
