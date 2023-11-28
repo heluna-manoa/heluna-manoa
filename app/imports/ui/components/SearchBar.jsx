@@ -15,6 +15,12 @@ const SearchBar = () => {
     navigate(`/searchcourse?query=${query}`);
   };
 
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      handleSearch();
+    }
+  };
+
   return (
     <form>
       <input
@@ -24,6 +30,7 @@ const SearchBar = () => {
         onChange={(event) => {
           setQuery(event.target.value);
         }}
+        onKeyPress={handleKeyPress}
       />
       <button type="button" onClick={handleSearch}>
         Search
