@@ -12,10 +12,16 @@ class ReviewCollection {
       courseName: String,
       professor: String,
       semesterTaken: String,
-      reviewContent: String,
+      reviewContent: {
+        type: String,
+        optional: true, // Make reviewContent optional
+      },
       rating: Number,
       grade: String,
-      anonymous: Boolean,
+      anonymous: {
+        type: Boolean,
+        optional: true, // Make anonymous optional
+      },
       reviewer: String,
     });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
