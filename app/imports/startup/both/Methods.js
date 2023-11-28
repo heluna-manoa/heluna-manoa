@@ -17,23 +17,16 @@ Meteor.methods({
   },
 });
 
-const addProjectMethod = 'Projects.add';
+const addProfessorMethod = 'Professors.add';
 
 /** Creates a new project in the Projects collection, and also updates ProfilesProjects and ProjectsInterests. */
-// Meteor.methods({
-//   'Projects.add'({ name, description, picture, interests, participants, homepage }) {
-//     Projects.collection.insert({ name, description, picture, homepage });
-//     ProfilesProjects.collection.remove({ project: name });
-//     ProjectsInterests.collection.remove({ project: name });
-//     if (interests) {
-//       interests.map((interest) => ProjectsInterests.collection.insert({ project: name, interest }));
-//     } else {
-//       throw new Meteor.Error('At least one interest is required.');
-//     }
-//     if (participants) {
-//       participants.map((participant) => ProfilesProjects.collection.insert({ project: name, profile: participant }));
-//     }
-//   },
-// });
+Meteor.methods({
+  'Professors.add'({ profName, bio, courses }) {
+    Professors.collection.insert({ profName, bio, courses });
+    courses.forEach((name) => {
+      Courses.collection.update({ name: name }, { $addToSet: { professors: profName } });
+    });
+  },
+});
 
-export { addCourseMethod, addProjectMethod };
+export { addCourseMethod, addProfessorMethod };

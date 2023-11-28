@@ -10,6 +10,10 @@ class ProfessorCollection {
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
       profName: String,
+      bio: {
+        type: String,
+        optional: true,
+      },
       courses: Array,
       'courses.$': String,
     });
