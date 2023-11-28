@@ -6,7 +6,7 @@ import { useParams } from 'react-router';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Courses } from '../../api/courses/Course';
 import { Reviews } from '../../api/reviews/Review';
-import ReviewCard from '../components/ReviewCard';
+import ReviewCardCourse from '../components/ReviewCardCourse';
 
 /* Renders a table containing all of the Course documents. Use <CourseItem> to render each row. */
 const CourseReview = () => {
@@ -46,18 +46,18 @@ const CourseReview = () => {
       </Row>
       <Row>
         <Col className="text-center">
-          <h2>Credits: {chosenCourse.credits}</h2>
+          <h2 style={{ color: 'white' }}>Credits: {chosenCourse.credits}</h2>
         </Col>
         <Col className="text-center">
-          <h2>Professors:</h2>
-          {chosenCourse.professors.map((professor) => <h3>{professor}</h3>)}
+          <h2 style={{ color: 'white' }}>Professors:</h2>
+          {chosenCourse.professors.map((professor) => <h3 style={{ color: 'white' }}>{professor}</h3>)}
         </Col>
         <Col className="text-center">
-          <h2>Average Rating: {avgRating}</h2>
+          <h2 style={{ color: 'white' }}>Average Rating: {avgRating}</h2>
         </Col>
       </Row>
       <Row xs={1} md={2} lg={3} className="g-4">
-        {reviewsFiltered.map((review) => (<Col key={review._id}><ReviewCard review={review} /></Col>))}
+        {reviewsFiltered.map((review) => (<Col key={review._id}><ReviewCardCourse review={review} /></Col>))}
       </Row>
     </Container>
   ) : <LoadingSpinner />);
