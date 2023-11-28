@@ -6,10 +6,14 @@ import { useParams } from 'react-router';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Courses } from '../../api/courses/Course';
 import { Reviews } from '../../api/reviews/Review';
+import ReviewCard from '../components/ReviewCard';
 import ReviewCardCourse from '../components/ReviewCardCourse';
 
 /* Renders a table containing all of the Course documents. Use <CourseItem> to render each row. */
 const CourseReview = () => {
+  const { currentUser } = useTracker(() => ({
+    currentUser: Meteor.user() ? Meteor.user().username : '',
+  }), []);
   const { courseName } = useParams();
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { ready, courses, reviews } = useTracker(() => {
@@ -57,7 +61,15 @@ const CourseReview = () => {
         </Col>
       </Row>
       <Row xs={1} md={2} lg={3} className="g-4">
-        {reviewsFiltered.map((review) => (<Col key={review._id}><ReviewCardCourse review={review} /></Col>))}
+        {reviewsFiltered.map((review) => (
+          <Col key={review._id}>
+            {currentUser === review.reviewer ? (
+              <ReviewCard review={review} />
+            ) : (
+              <ReviewCardCourse review={review} />
+            )}
+          </Col>
+        ))}
       </Row>
     </Container>
   ) : <LoadingSpinner />);
