@@ -42,3 +42,7 @@ body .navbar {
 footer {
   color: var(--matr-navbar-text-color);
 }
+
+#landing-card {
+  width: 90%
+}

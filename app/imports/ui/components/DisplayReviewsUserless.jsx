@@ -7,7 +7,7 @@ import ReviewCardCourse from './ReviewCardCourse';
 import ReviewCardProfessor from './ReviewCardProfessor';
 import { Reviews } from '../../api/reviews/Review';
 
-const DisplayReviews = () => {
+const DisplayReviewsUserless = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { ready, reviews } = useTracker(() => {
     // Note that this subscription will get cleaned up
@@ -17,8 +17,7 @@ const DisplayReviews = () => {
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the Stuff documents
-    const userName = Meteor.user().username;
-    const reviewItems = Reviews.collection.find({ reviewer: userName }).fetch();
+    const reviewItems = Reviews.collection.fetch();
     return {
       reviews: reviewItems,
       ready: rdy,
@@ -38,4 +37,4 @@ const DisplayReviews = () => {
   ) : <LoadingSpinner />);
 };
 
-export default DisplayReviews;
+export default DisplayReviewsUserless;
