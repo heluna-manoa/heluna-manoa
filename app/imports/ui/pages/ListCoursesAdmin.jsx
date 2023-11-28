@@ -13,6 +13,10 @@ const ListCoursesAdmin = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const navigate = useNavigate();
   const routeChange = () => {
+    const path = '/addcourse';
+    navigate(path);
+  };
+  const routeChange2 = () => {
     const path = '/addprof';
     navigate(path);
   };
@@ -52,7 +56,8 @@ const ListCoursesAdmin = () => {
               {courses.map((course) => <CourseItemAdmin key={course._id} course={course} collection={Courses.collection} />)}
             </tbody>
           </Table>
-          <h2 style={{ color: 'white' }}><Button variant="primary" onClick={routeChange}><PlusCircleFill /> Add</Button></h2>
+          <h2 style={{ color: 'white' }}><Button variant="primary" onClick={routeChange}><PlusCircleFill /> Add Course</Button></h2>
+          <h2 style={{ color: 'white' }}><Button variant="primary" onClick={routeChange2}><PlusCircleFill /> Add Professor</Button></h2>
         </Col>
       </Row>
     </Container>
