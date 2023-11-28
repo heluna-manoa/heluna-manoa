@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Row, Image } from 'react-bootstrap';
 import DisplayReviews from '../components/DisplayReviews';
 import DisplayReviewsUserless from '../components/DisplayReviewsUserless';
 import SearchBar from '../components/SearchBar';
@@ -15,6 +15,9 @@ const Landing = () => {
 
   return (
     <Container id="landing-page" fluid className="py-3">
+      <Row>
+        <Image className="img-fluid" src="/images/helunaManoaLogo.png" />
+      </Row>
       <Row className="align-middle text-center">
         <h1 style={{ color: 'white' }}>Heluna Manoa</h1>
       </Row>
