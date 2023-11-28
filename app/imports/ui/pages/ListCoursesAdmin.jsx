@@ -1,12 +1,12 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Button, Col, Container, Row, Table, Link } from 'react-bootstrap';
+import { Button, Col, Container, Row, Table } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
+import { useNavigate } from 'react-router-dom';
+import { PlusCircleFill } from 'react-bootstrap-icons';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Courses } from '../../api/courses/Course';
 import CourseItemAdmin from '../components/CourseItemAdmin';
-import { PlusCircleFill } from 'react-bootstrap-icons';
-import { useNavigate } from 'react-router-dom';
 
 /* Renders a table containing all of the Course documents. Use <CourseItem> to render each row. */
 const ListCoursesAdmin = () => {
