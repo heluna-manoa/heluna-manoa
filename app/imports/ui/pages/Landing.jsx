@@ -13,12 +13,6 @@ const Landing = () => {
     currentUser: Meteor.user() ? Meteor.user().username : '',
   }), []);
 
-  function useState(something) {
-    return something;
-  }
-
-  const [query, setQuery] = useState('');
-
   return (
     <Container id="landing-page" fluid className="py-3">
       <Row className="align-middle text-center">
