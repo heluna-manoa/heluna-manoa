@@ -1,12 +1,13 @@
 /* Use Open Sans as the default sans serif font. */
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,700|Source+Code+Pro:300,400,500,700");
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 
 /* Set up some CSS variables to theme the application. */
 :root {
-  --matr-navbar-bg: #024731;
-  --matr-navbar-bg-rgb: 2, 71, 49;
-  --matr-navbar-text-color: white;
-  --matr-navbar-highlight-text: lightgray;
+  --matr-navbar-bg: #008080;
+  --matr-navbar-bg-rgb: 0, 128, 128;
+  --matr-navbar-text-color: #062D23;
+  --matr-navbar-highlight-text: #035752;
 }
 
 /* Change bootstrap variable values.
@@ -14,8 +15,10 @@
  */
 body {
   --bs-light-rgb: var(--matr-navbar-bg-rgb);
-  background: url("/images/hawaii-hall-m.png");
+  background: url("/images/tree.png");
   background-size: cover;
+  padding-top: 75px;
+  padding-bottom: 75px;
 }
 
 /* Set the alert background on the signin and signup pages. */
@@ -37,8 +40,29 @@ body .navbar {
   --bs-navbar-brand-hover-color: var(--matr-navbar-highlight-text);
   --bs-navbar-color: var(--matr-navbar-text-color);
   --bs-navbar-hover-color: var(--matr-navbar-highlight-text);
+  font-family: "Josefin Sans", san-serif;
+}
+
+.fixed-top {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+}
+
+h1 {
+  color: white;
+}
+
+h2 {
+  color: white;
 }
 
 footer {
   color: var(--matr-navbar-text-color);
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 }
