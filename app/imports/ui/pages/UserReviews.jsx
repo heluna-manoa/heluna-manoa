@@ -28,7 +28,7 @@ const UserReviews = () => {
       <Row className="justify-content-center">
         <Col>
           <Col className="text-center">
-            <h2>Your Reviews</h2>
+            <h2 style={{ color: 'white' }}>Your Reviews</h2>
           </Col>
           <Row xs={1} md={2} lg={3} className="g-4">
             {reviews.map((review) => (<Col key={review._id}><ReviewCard review={review} /></Col>))}

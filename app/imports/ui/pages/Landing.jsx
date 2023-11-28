@@ -15,15 +15,15 @@ const Landing = () => {
   return (
     <Container id="landing-page" fluid className="py-3">
       <Row className="align-middle text-center">
-        <h1>Heluna Manoa</h1>
+        <h1 style={{ color: 'white' }}>Heluna Manoa</h1>
       </Row>
       <Row className="align-middle text-center">
         <Col>
-          <h2>Search by Course</h2>
+          <h2 style={{ color: 'white' }}>Search by Course</h2>
           <SearchBar />
         </Col>
         <Col>
-          <h2>Search by Professor</h2>
+          <h2 style={{ color: 'white' }}>Search by Professor</h2>
           <form method="get" action="/searchcourse">
             <input type="search" id="prof-search" name="professor" />
           </form>
@@ -32,25 +32,25 @@ const Landing = () => {
       {currentUser === '' ? (
         <Row className="align-middle text-center">
           <Col>
-            <h2>Recent Course Reviews</h2>
+            <h2 style={{ color: 'white' }}>Recent Course Reviews</h2>
           </Col>
           <Col>
-            <h2>Recent Professor Reviews</h2>
+            <h2 style={{ color: 'white' }}>Recent Professor Reviews</h2>
           </Col>
         </Row>
       ) : (
         <Row className="align-middle text-center">
           <Col>
-            <h2>My Course Reviews</h2>
+            <h2 style={{ color: 'white' }}>My Course Reviews</h2>
           </Col>
           <Col>
-            <h2>My Professor Reviews</h2>
+            <h2 style={{ color: 'white' }}>My Professor Reviews</h2>
           </Col>
         </Row>
       )}
       <Row className="align-middle text-center">
         {currentUser === '' ? (
-          <h1>No Reviews</h1>
+          <h1 style={{ color: 'white' }}>No Reviews</h1>
         ) : (
           <DisplayReviews />
         )}

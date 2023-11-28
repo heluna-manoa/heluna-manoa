@@ -45,7 +45,7 @@ const ListCourses = () => {
       <Row className="justify-content-center">
         <Col md={7}>
           <Col className="text-center">
-            <h2>List Courses</h2>
+            <h2 style={{ color: 'white' }}>List Courses</h2>
           </Col>
           <Table striped bordered hover>
             <thead>
