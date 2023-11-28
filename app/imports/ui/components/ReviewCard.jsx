@@ -28,7 +28,7 @@ const ReviewCard = ({ review }) => {
         <Card.Subtitle>
           Grade: {review.grade}
           <br />
-          <i>{review.reviewer}</i>{review.anonymous ? (' [Name Displayed]') : (' [Review Anonymous]')}
+          <i>{review.reviewer}</i>{review.anonymous ? (' [Review Anonymous]') : (' [Name Displayed]')}
         </Card.Subtitle>
         <Link to={`/editreview/${review._id}`}><Button variant="warning">Edit</Button></Link>
         <Button variant="danger" onClick={() => removeReview(Reviews.collection, review._id)}><Trash /></Button>
