@@ -16,7 +16,7 @@ const renderProfessors = (professors) => {
 const CourseItem = ({ course }) => (
   <tr>
     <td>
-      <Link to={`/coursereview/${course.name}`}>
+      <Link id={`#${course.name}`} to={`/coursereview/${course.name}`}>
         {course.name}
       </Link>
     </td>
