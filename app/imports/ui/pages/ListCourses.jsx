@@ -2,6 +2,7 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Col, Container, Row, Table } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
+import { useLocation } from 'react-router';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Courses } from '../../api/courses/Course';
 import CourseItem from '../components/CourseItem';
@@ -23,6 +24,22 @@ const ListCourses = () => {
       ready: rdy,
     };
   }, []);
+
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  let query = queryParams.get('query');
+
+  let coursesFiltered = courses; // Initialize coursesFiltered with all courses
+
+  if (query) { // Check if query has a value (is not null, undefined, or an empty string)
+    query = query.replace(/\s/g, '');
+    coursesFiltered = courses.filter((course) => {
+      const courseName = course.name.toLowerCase();
+      const lowerCaseQuery = query.toLowerCase();
+      return courseName.includes(lowerCaseQuery);
+    });
+  }
+
   return (ready ? (
     <Container className="py-3">
       <Row className="justify-content-center">
@@ -40,7 +57,7 @@ const ListCourses = () => {
               </tr>
             </thead>
             <tbody>
-              {courses.map((course) => <CourseItem key={course._id} course={course} />)}
+              {coursesFiltered.map((course) => <CourseItem key={course._id} course={course} />)}
             </tbody>
           </Table>
         </Col>

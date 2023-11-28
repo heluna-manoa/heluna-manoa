@@ -6,6 +6,7 @@ import SimpleSchema from 'simpl-schema';
 import { AutoForm, SelectField, SubmitField, TextField, ErrorsField } from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
+import { addCourseMethod } from '../../startup/both/Methods';
 import { Courses } from '../../api/courses/Course';
 
 const AdminAddCourse = () => {
@@ -34,8 +35,30 @@ const AdminAddCourse = () => {
     },
   });
   const bridge = new SimpleSchema2Bridge(professorSchema);
+  // const submitCourse = (data, formRef) => {
+  //   const { name, title, professors, credits } = data;
+  //   const allNames = courseItems.reduce((acc, courseItem) => acc.concat(courseItem.name), []);
+  //   const uniqueNames = [...new Set(allNames)];
+  //
+  //   if (uniqueNames.includes(name)) {
+  //     swal('ERROR! Class exists.');
+  //   } else {
+  //     // Course does not exist, perform insert
+  //     Courses.collection.insert(
+  //       { name, title, professors, credits },
+  //       (error) => {
+  //         if (error) {
+  //           swal('Error', error.message, 'error');
+  //         } else {
+  //           swal('Success', 'Course added successfully', 'success');
+  //           formRef.reset();
+  //         }
+  //       },
+  //     );
+  //   }
+  // };
   const submitCourse = (data, formRef) => {
-    const { name, title, professors, credits } = data;
+    const { name } = data;
     const allNames = courseItems.reduce((acc, courseItem) => acc.concat(courseItem.name), []);
     const uniqueNames = [...new Set(allNames)];
 
@@ -43,19 +66,16 @@ const AdminAddCourse = () => {
       swal('ERROR! Class exists.');
     } else {
       // Course does not exist, perform insert
-      Courses.collection.insert(
-        { name, title, professors, credits },
-        (error) => {
-          if (error) {
-            swal('Error', error.message, 'error');
-          } else {
-            swal('Success', 'Course added successfully', 'success');
-            formRef.reset();
-          }
-        },
-      );
+      Meteor.call(addCourseMethod, data, (error) => {
+        if (error) {
+          swal('Error', error.message, 'error');
+        } else {
+          swal('Success', 'Project added successfully', 'success').then(() => formRef.reset());
+        }
+      });
     }
   };
+
   // const updateProfessors = (data) => {
   //   const { name, professors } = data;
   //   professors.forEach((profName) => {

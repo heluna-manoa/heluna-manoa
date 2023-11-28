@@ -2,6 +2,8 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Col, Container, Row } from 'react-bootstrap';
+import DisplayReviews from '../components/DisplayReviews';
+import SearchBar from '../components/SearchBar';
 
 /* A simple static component to render some text for the landing page. */
 const Landing = () => {
@@ -18,9 +20,7 @@ const Landing = () => {
       <Row className="align-middle text-center">
         <Col>
           <h2 style={{ color: 'white' }}>Search by Course</h2>
-          <form method="get" action="/searchcourse">
-            <input type="search" id="course-search" name="course" />
-          </form>
+          <SearchBar />
         </Col>
         <Col>
           <h2 style={{ color: 'white' }}>Search by Professor</h2>
@@ -32,22 +32,29 @@ const Landing = () => {
       {currentUser === '' ? (
         <Row className="align-middle text-center">
           <Col>
-            <h2>Recent Course Reviews</h2>
+            <h2 style={{ color: 'white' }}>Recent Course Reviews</h2>
           </Col>
           <Col>
-            <h2>Recent Professor Reviews</h2>
+            <h2 style={{ color: 'white' }}>Recent Professor Reviews</h2>
           </Col>
         </Row>
       ) : (
         <Row className="align-middle text-center">
           <Col>
-            <h2 style={{ color: 'white' }}>My Courses</h2>
+            <h2 style={{ color: 'white' }}>My Course Reviews</h2>
           </Col>
           <Col>
-            <h2 style={{ color: 'white' }}>My Professors</h2>
+            <h2 style={{ color: 'white' }}>My Professor Reviews</h2>
           </Col>
         </Row>
       )}
+      <Row className="align-middle text-center">
+        {currentUser === '' ? (
+          <h1 style={{ color: 'white' }}>No Reviews</h1>
+        ) : (
+          <DisplayReviews />
+        )}
+      </Row>
     </Container>
   );
 };

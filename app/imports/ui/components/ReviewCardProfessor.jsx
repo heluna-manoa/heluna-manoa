@@ -13,14 +13,14 @@ const displayStars = (review) => {
   return stars;
 };
 
-const ReviewCard = ({ review }) => {
+const ReviewCardProfessor = ({ review }) => {
   const removeReview = (collection, docID) => {
     collection.remove(docID);
   };
   return (
     <Card className="h-100">
       <Card.Header>
-        <Card.Title> {displayStars(review)} <br /> {review.courseName} <br /> {review.professor}
+        <Card.Title> {displayStars(review)} <br /> {review.professor} <br /> {review.courseName}
         </Card.Title>
       </Card.Header>
       <Card.Body>
@@ -36,7 +36,7 @@ const ReviewCard = ({ review }) => {
 };
 
 // Require a document to be passed to this component.
-ReviewCard.propTypes = {
+ReviewCardProfessor.propTypes = {
   review: PropTypes.shape({
     courseName: PropTypes.string,
     professor: PropTypes.string,
@@ -48,4 +48,4 @@ ReviewCard.propTypes = {
   }).isRequired,
 };
 
-export default ReviewCard;
+export default ReviewCardProfessor;
