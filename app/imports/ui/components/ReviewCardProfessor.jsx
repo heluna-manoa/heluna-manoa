@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card, Image } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 
 const displayStars = (review) => {
   const stars = [];
@@ -13,16 +13,15 @@ const displayStars = (review) => {
 const ReviewCardProfessor = ({ review }) => (
   <Card className="h-100 landing-card">
     <Card.Header>
-      <Card.Title>
-        <Image src={review.image} />
-        {review.professor}
-        <br />
-        {displayStars(review)}
+      <Card.Title> {displayStars(review)} <br /> {review.professor}
       </Card.Title>
-      <Card.Subtitle>{review.department}</Card.Subtitle>
+      <Card.Subtitle>{review.courseName}</Card.Subtitle>
     </Card.Header>
     <Card.Body>
-      <Card.Text>{review.courses}</Card.Text>
+      <Card.Text>{review.reviewContent}</Card.Text>
+      <Card.Subtitle>
+        Grade: {review.grade} <br /> <i>{review.reviewer}</i>
+      </Card.Subtitle>
     </Card.Body>
   </Card>
 );
@@ -30,11 +29,12 @@ const ReviewCardProfessor = ({ review }) => (
 // Require a document to be passed to this component.
 ReviewCardProfessor.propTypes = {
   review: PropTypes.shape({
+    courseName: PropTypes.string,
     professor: PropTypes.string,
-    department: PropTypes.string,
-    image: PropTypes.string,
-    courses: PropTypes.string,
+    reviewContent: PropTypes.string,
     rating: PropTypes.number,
+    grade: PropTypes.string,
+    reviewer: PropTypes.string,
     _id: PropTypes.string,
   }).isRequired,
 };
