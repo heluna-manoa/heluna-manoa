@@ -3,7 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Col, Container, Row } from 'react-bootstrap';
 import DisplayReviews from '../components/DisplayReviews';
-// import DisplayReviewsUserless from '../components/DisplayReviewsUserless';
+import DisplayReviewsUserless from '../components/DisplayReviewsUserless';
 import SearchBar from '../components/SearchBar';
 
 /* A simple static component to render some text for the landing page. */
@@ -51,8 +51,8 @@ const Landing = () => {
       )}
       <Row className="align-middle text-center">
         {currentUser === '' ? (
-          <h1 style={{ color: 'white' }}>No Reviews</h1>
-          // <DisplayReviewsUserless />
+          // <h1 style={{ color: 'white' }}>No Reviews</h1>
+          <DisplayReviewsUserless />
         ) : (
           <DisplayReviews />
         )}

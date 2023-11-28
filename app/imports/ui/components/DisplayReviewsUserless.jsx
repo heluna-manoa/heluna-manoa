@@ -13,11 +13,11 @@ const DisplayReviewsUserless = () => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
     // Get access to Course documents.
-    const subscription = Meteor.subscribe(Reviews.userPublicationName);
+    const subscription = Meteor.subscribe(Reviews.publicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the Stuff documents
-    const reviewItems = Reviews.collection.fetch();
+    const reviewItems = Reviews.collection.find({ }).fetch();
     return {
       reviews: reviewItems,
       ready: rdy,
