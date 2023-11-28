@@ -10,23 +10,21 @@ const displayStars = (review) => {
   return stars;
 };
 
-const ReviewCardCourse = ({ review }) => {
-  return (
-    <Card className="h-100 landing-card">
-      <Card.Header>
-        <Card.Title> {displayStars(review)} <br /> {review.courseName}
-        </Card.Title>
-        <Card.Subtitle>{review.professor}</Card.Subtitle>
-      </Card.Header>
-      <Card.Body>
-        <Card.Text>{review.reviewContent}</Card.Text>
-        <Card.Subtitle>
-          Grade: {review.grade} <br /> <i>{review.reviewer}</i>
-        </Card.Subtitle>
-      </Card.Body>
-    </Card>
-  );
-};
+const ReviewCardCourse = ({ review }) => (
+  <Card className="h-100 landing-card">
+    <Card.Header>
+      <Card.Title> {displayStars(review)} <br /> {review.courseName}
+      </Card.Title>
+      <Card.Subtitle>{review.professor}</Card.Subtitle>
+    </Card.Header>
+    <Card.Body>
+      <Card.Text>{review.reviewContent}</Card.Text>
+      <Card.Subtitle>
+        Grade: {review.grade} <br /> <i>{review.reviewer}</i>
+      </Card.Subtitle>
+    </Card.Body>
+  </Card>
+);
 
 // Require a document to be passed to this component.
 ReviewCardCourse.propTypes = {
