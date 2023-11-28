@@ -94,7 +94,7 @@ const WriteReview = () => {
     <Container className="py-3">
       <Row className="justify-content-center">
         <Col xs={5}>
-          <Col className="text-center"><h2>Write a Review</h2></Col>
+          <Col className="text-center"><h2 style={{ color: 'white' }}>Write a Review</h2></Col>
           <AutoForm
             ref={(ref) => { fRef = ref; }}
             schema={bridge}

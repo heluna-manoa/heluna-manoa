@@ -13,17 +13,17 @@ const Landing = () => {
   return (
     <Container id="landing-page" fluid className="py-3">
       <Row className="align-middle text-center">
-        <h1>Heluna Manoa</h1>
+        <h1 style={{ color: 'white' }}>Heluna Manoa</h1>
       </Row>
       <Row className="align-middle text-center">
         <Col>
-          <h2>Search by Course</h2>
+          <h2 style={{ color: 'white' }}>Search by Course</h2>
           <form method="get" action="/searchcourse">
             <input type="search" id="course-search" name="course" />
           </form>
         </Col>
         <Col>
-          <h2>Search by Professor</h2>
+          <h2 style={{ color: 'white' }}>Search by Professor</h2>
           <form method="get" action="/searchcourse">
             <input type="search" id="prof-search" name="professor" />
           </form>
@@ -41,10 +41,10 @@ const Landing = () => {
       ) : (
         <Row className="align-middle text-center">
           <Col>
-            <h2>My Courses</h2>
+            <h2 style={{ color: 'white' }}>My Courses</h2>
           </Col>
           <Col>
-            <h2>My Professors</h2>
+            <h2 style={{ color: 'white' }}>My Professors</h2>
           </Col>
         </Row>
       )}

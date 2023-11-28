@@ -51,6 +51,14 @@ body .navbar {
   z-index: 1030;
 }
 
+h1 {
+  color: white;
+}
+
+h2 {
+  color: white;
+}
+
 footer {
   color: var(--matr-navbar-text-color);
   position: fixed;
