@@ -5,6 +5,7 @@ import { navBar } from './navbar.component';
 import { userReviews } from './userreviews.page';
 import { writeReviews } from './writereviews.page';
 import { editReviews } from './editreviews.page';
+import { listCoursesPage } from './listcourses.page';
 
 /* global fixture:false, test:false */
 
@@ -54,4 +55,13 @@ test('Test the edit reviews after writing a review page', async (testController)
   await navBar.gotoUserReviewsPage(testController);
   await userReviews.isDisplayed(testController);
   await editReviews.editAReview(testController);
+});
+
+// Cade: go to list courses page
+test.only('Test the List Courses page', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, credentials.username, credentials.password);
+  await navBar.gotoListCoursesPage(testController);
+  await listCoursesPage.isDisplayed(testController);
+  await listCoursesPage.hasTable(testController);
 });

@@ -63,6 +63,7 @@ class NavBar {
     await testController.click('#write-review-nav');
   }
 
+  /** Go to list courses page */
 }
 
 export const navBar = new NavBar();
