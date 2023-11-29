@@ -97,11 +97,11 @@ const AdminAddCourse = () => {
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submitCourse(data, fRef)}>
             <Card>
               <Card.Body>
-                <TextField name="name" />
-                <TextField name="title" />
-                <SelectField multiple name="professors" />
-                <SelectField name="credits" />
-                <SubmitField value="Submit" />
+                <TextField id="#course-name" name="name" />
+                <TextField id="#course-title" name="title" />
+                <SelectField id="#professor-selection" multiple name="professors" />
+                <SelectField id="#credit-number" name="credits" />
+                <SubmitField id="#submit-course" value="Submit" />
                 <ErrorsField />
               </Card.Body>
             </Card>

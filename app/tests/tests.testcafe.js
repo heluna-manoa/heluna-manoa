@@ -11,6 +11,7 @@ import { listCoursesPage } from './listcourses.page';
 
 /** Credentials for one of the sample users defined in settings.development.json. */
 const credentials = { username: 'john@foo.com', password: 'changeme' };
+const credentialsAdmin = { username: 'admin@foo.com', password: 'changeme' };
 
 fixture('meteor-application-template-react localhost test with default db')
   .page('http://localhost:3000');
@@ -64,4 +65,14 @@ test.only('Test the List Courses page', async (testController) => {
   await navBar.gotoListCoursesPage(testController);
   await listCoursesPage.isDisplayed(testController);
   await listCoursesPage.hasTable(testController);
+});
+
+test('Test the add course', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, credentialsAdmin.username, credentialsAdmin.password);
+
+});
+test('Test the edit course after adding a course', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, credentialsAdmin.username, credentialsAdmin.password);
 });
