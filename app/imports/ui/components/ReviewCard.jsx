@@ -28,8 +28,8 @@ const ReviewCard = ({ review }) => {
         <Card.Subtitle>
           Grade: {review.grade} <br /> <i>{review.reviewer}</i>
         </Card.Subtitle>
-        <Link to={`/editreview/${review._id}`}><Button variant="warning">Edit</Button></Link>
-        <Button variant="danger" onClick={() => removeReview(Reviews.collection, review._id)}><Trash /></Button>
+        <Link id="edit-review" to={`/editreview/${review._id}`}><Button variant="warning">Edit</Button></Link>
+        <Button id="delete-review" variant="danger" onClick={() => removeReview(Reviews.collection, review._id)}><Trash /></Button>
       </Card.Body>
     </Card>
   );

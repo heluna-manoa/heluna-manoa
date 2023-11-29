@@ -103,20 +103,21 @@ const WriteReview = () => {
           >
             <Card>
               <Card.Body>
-                <SelectField name="courseName" placeholder="Course Name" value={selectedCourse} onChange={onCourseChange} />
+                <SelectField id="course-selector" name="courseName" placeholder="Course Name" value={selectedCourse} onChange={onCourseChange} />
                 <SelectField
+                  id="professor-selector"
                   name="professor"
                   placeholder="Professor's Name"
                   value={selectedProfessor}
                   onChange={onProfessorChange}
                   allowedValues={allowedProfessors}
                 />
-                <SelectField name="semesterTaken" placeholder="Semester Taken" />
-                <SelectField name="rating" placeholder="Input your rating" />
-                <SelectField name="grade" placeholder="Input grade received" />
-                <TextField name="reviewContent" component="textarea" rows={4} placeholder="Write your review here" />
+                <SelectField id="semester-selector" name="semesterTaken" placeholder="Semester Taken" />
+                <SelectField id="rating-selector" name="rating" placeholder="Input your rating" />
+                <SelectField id="grade-selector" name="grade" placeholder="Input grade received" />
+                <TextField id="review-text" name="reviewContent" component="textarea" rows={4} placeholder="Write your review here" />
                 <BoolField name="anonymous" component="switch" label="Submit Anonymously?" />
-                <SubmitField value="Submit Review" />
+                <SubmitField id="submit-button" value="Submit Review" />
                 <ErrorsField />
               </Card.Body>
             </Card>
