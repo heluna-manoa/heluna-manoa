@@ -64,6 +64,9 @@ class NavBar {
   }
 
   /** Go to list courses page */
+  async gotoListCoursesPage(testController) {
+    await testController.click('#search-course-nav');
+  }
 }
 
 export const navBar = new NavBar();
