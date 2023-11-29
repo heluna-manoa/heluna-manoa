@@ -6,6 +6,8 @@ import { userReviews } from './userreviews.page';
 import { writeReviews } from './writereviews.page';
 import { editReviews } from './editreviews.page';
 import { listCoursesPage } from './listcourses.page';
+import { listCoursesAdmin } from './listcoursesadmin.page';
+import { addCourse } from './addcourse.page';
 
 /* global fixture:false, test:false */
 
@@ -59,7 +61,7 @@ test('Test the edit reviews after writing a review page', async (testController)
 });
 
 // Cade: go to list courses page
-test.only('Test the List Courses page', async (testController) => {
+test('Test the List Courses page', async (testController) => {
   await navBar.gotoSignInPage(testController);
   await signinPage.signin(testController, credentials.username, credentials.password);
   await navBar.gotoListCoursesPage(testController);
@@ -67,12 +69,12 @@ test.only('Test the List Courses page', async (testController) => {
   await listCoursesPage.hasTable(testController);
 });
 
-test('Test the add course', async (testController) => {
+test.only('Test the add course', async (testController) => {
   await navBar.gotoSignInPage(testController);
   await signinPage.signin(testController, credentialsAdmin.username, credentialsAdmin.password);
-
-});
-test('Test the edit course after adding a course', async (testController) => {
-  await navBar.gotoSignInPage(testController);
-  await signinPage.signin(testController, credentialsAdmin.username, credentialsAdmin.password);
+  await navBar.gotoAdminAddCoursePage(testController);
+  await listCoursesAdmin.isDisplayed(testController);
+  await listCoursesAdmin.gotoAddCourse(testController);
+  await addCourse.isDisplayed(testController);
+  await addCourse.addACourse(testController);
 });
