@@ -58,7 +58,7 @@ test('Test the edit reviews after writing a review page', async (testController)
 });
 
 // Cade: go to list courses page
-test.only('Test the List Courses page', async (testController) => {
+test('Test the List Courses page', async (testController) => {
   await navBar.gotoSignInPage(testController);
   await signinPage.signin(testController, credentials.username, credentials.password);
   await navBar.gotoListCoursesPage(testController);

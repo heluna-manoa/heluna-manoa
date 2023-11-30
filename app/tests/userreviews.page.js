@@ -15,6 +15,7 @@ class UserReviewsPage {
   async deleteReview(testController) {
     await this.isDisplayed(testController);
     await testController.click('#delete-review');
+    await testController.click('.swal-button--confirm');
   }
 }
 
