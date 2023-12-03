@@ -17,7 +17,7 @@ const NavBar = () => {
       <Container>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto justify-content-start">
+          <Nav className="justify-content-start">
             {currentUser ? ([
               <Nav.Link id="write-review-nav" as={NavLink} to="/write" key="write">Write Review</Nav.Link>,
               <Nav.Link id="search-course-nav" as={NavLink} to="/searchcourse" key="searchcourse">Search Courses</Nav.Link>,
@@ -29,9 +29,9 @@ const NavBar = () => {
               <Nav.Link id="search-admin-nav" as={NavLink} to="/courseadmin" key="courseadmin">Admin</Nav.Link>
             ) : ''}
           </Nav>
-          <Nav className="justify-content-center">
+          <Nav className="mx-auto justify-content-center">
             <a href="/">
-              <Image src="/images/helunaManoaLogo.png" height={60} className="px-3" />
+              <Image src="/images/helunaManoaLogo.png" height={128} className="px-3" />
             </a>
           </Nav>
           <Nav className="justify-content-end">
