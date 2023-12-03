@@ -15,9 +15,6 @@ const Landing = () => {
 
   return (
     <Container id="landing-page" fluid className="py-3">
-      <Row>
-        <Image className="img-fluid" src="/images/helunaManoaLogo.png" />
-      </Row>
       <Row className="align-middle text-center">
         <h1 style={{ color: 'white' }}>Heluna Manoa</h1>
       </Row>
@@ -28,9 +25,12 @@ const Landing = () => {
         </Col>
         <Col>
           <h2 style={{ color: 'white' }}>Search by Professor</h2>
+          <text style={{ color: 'white' }}>Coming Soon</text>
+          {/*
           <form method="get" action="/searchcourse">
             <input type="search" id="prof-search" name="professor" />
           </form>
+          */}
         </Col>
       </Row>
       {currentUser === '' ? (
