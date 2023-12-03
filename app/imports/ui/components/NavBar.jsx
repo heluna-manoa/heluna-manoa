@@ -15,10 +15,6 @@ const NavBar = () => {
   return (
     <Navbar fixed="top" bg="light" expand="lg">
       <Container>
-        <Image src="/images/helunaManoaLogo.png" height={60} className="px-3" />
-        <Navbar.Brand as={NavLink} to="/">
-          <h2>Heluna Manoa</h2>
-        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto justify-content-start">
@@ -26,10 +22,17 @@ const NavBar = () => {
               <Nav.Link id="write-review-nav" as={NavLink} to="/write" key="write">Write Review</Nav.Link>,
               <Nav.Link id="search-course-nav" as={NavLink} to="/searchcourse" key="searchcourse">Search Courses</Nav.Link>,
               <Nav.Link id="user-reviews-nav" as={NavLink} to="/userreviews" key="userreviews">Your Reviews</Nav.Link>,
-            ]) : ''}
+            ]) : (
+              <Nav.Link id="search-course-nav" as={NavLink} to="/searchcourse" key="searchcourse">Search Courses</Nav.Link>
+            )}
             {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
               <Nav.Link id="search-admin-nav" as={NavLink} to="/courseadmin" key="courseadmin">Admin</Nav.Link>
             ) : ''}
+          </Nav>
+          <Nav className="justify-content-center">
+            <a href="/">
+              <Image src="/images/helunaManoaLogo.png" height={60} className="px-3" />
+            </a>
           </Nav>
           <Nav className="justify-content-end">
             {currentUser === '' ? (
