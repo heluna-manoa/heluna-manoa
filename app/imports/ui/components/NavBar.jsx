@@ -29,7 +29,7 @@ const NavBar = () => {
               <Nav.Link id="search-admin-nav" as={NavLink} to="/courseadmin" key="courseadmin">Admin</Nav.Link>
             ) : ''}
           </Nav>
-          <Nav className="justify-content-center">
+          <Nav className="mx-auto justify-content-center">
             <a href="/">
               <Image src="/images/helunaManoaLogo.png" height={128} className="px-3" />
             </a>
