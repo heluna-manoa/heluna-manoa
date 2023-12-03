@@ -1,4 +1,5 @@
 import React from 'react';
+import swal from 'sweetalert';
 import PropTypes from 'prop-types';
 import { Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -15,7 +16,23 @@ const displayStars = (review) => {
 
 const ReviewCard = ({ review }) => {
   const removeReview = (collection, docID) => {
-    collection.remove(docID);
+    swal({
+      title: 'Are you sure?',
+      text: 'Once deleted, you will not be able to recover this review!',
+      icon: 'warning',
+      buttons: true,
+      dangerMode: true,
+    })
+      .then((willDelete) => {
+        if (willDelete) {
+          swal('Poof! Your review has been deleted!', {
+            icon: 'success',
+          });
+          collection.remove(docID);
+        } else {
+          swal('Your review is safe!');
+        }
+      });
   };
   return (
     <Card className="h-100">
@@ -25,13 +42,13 @@ const ReviewCard = ({ review }) => {
       </Card.Header>
       <Card.Body>
         <Card.Text>{review.reviewContent}</Card.Text>
-        <Card.Subtitle>
+        <Card.Subtitle className="m-2">
           Grade: {review.grade}
           <br />
-          <i>{review.reviewer}</i>{review.anonymous ? (' [Name Displayed]') : (' [Review Anonymous]')}
+          <i>{review.reviewer}</i>{review.anonymous ? (' [Review Anonymous]') : (' [Name Displayed]')}
         </Card.Subtitle>
-        <Link to={`/editreview/${review._id}`}><Button variant="warning">Edit</Button></Link>
-        <Button variant="danger" onClick={() => removeReview(Reviews.collection, review._id)}><Trash /></Button>
+        <Link id="edit-review" to={`/editreview/${review._id}`}><Button variant="warning">Edit</Button></Link>
+        <Button id="delete-review" className="mx-2" variant="danger" onClick={() => removeReview(Reviews.collection, review._id)}><Trash /></Button>
       </Card.Body>
     </Card>
   );

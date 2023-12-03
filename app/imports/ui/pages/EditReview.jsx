@@ -77,15 +77,15 @@ const EditReview = () => {
               <Card.Body>
                 <Row><h1>{doc.courseName}</h1></Row>
                 <Row>
-                  <Col><SelectField name="rating" /></Col>
+                  <Col><SelectField id="rating-selector" name="rating" /></Col>
                 </Row>
                 <Row>
-                  <Col><SelectField name="grade" /></Col>
+                  <Col><SelectField id="grade-selector" name="grade" /></Col>
                 </Row>
                 <Row>
-                  <Col><LongTextField name="reviewContent" /></Col>
+                  <Col><LongTextField id="review-text" name="reviewContent" /></Col>
                 </Row>
-                <SubmitField value="Update" />
+                <SubmitField id="submit-button" value="Update" />
                 <Link to="/userreviews"><Button variant="warning">Cancel</Button></Link>
                 <ErrorsField />
               </Card.Body>

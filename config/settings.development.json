@@ -24,15 +24,15 @@
     }
   ],
   "defaultCourses": [
-    { "name":  "ICS111", "title":  "Intro to Computer Science I", "professors": ["Edoardo Biagioni", "Cam Moore", "S P Robertson"], "credits":  4 },
-    { "name":  "ICS141", "title":  "Discrete Math for CS I", "professors": ["Depeng Li"], "credits":  3 },
-    { "name":  "ICS241", "title":  "Discrete Mathematics II", "professors": ["Depeng Li"], "credits":  3 },
-    { "name":  "ICS211", "title":  "Intro to Computer Science II", "professors": ["Edoardo Biagioni"], "credits":  4 },
-    { "name":  "ICS212", "title":  "Program Structure", "professors": ["Ravi Narayan", "K Tarrit Mirakhorli"], "credits":  3 },
-    { "name":  "ICS235", "title":  "Machine Learning Methods", "professors": ["Kyungim Baek"], "credits":  3 },
-    { "name":  "ICS311", "title":  "Algorithms", "professors": ["DB Conner", "N S Sitchinava"], "credits":  4 },
-    { "name":  "ICS314", "title":  "Introduction to Software Engineering", "professors": ["Cam Moore", "Philip Johnson", "Dan Port"], "credits":  3 },
-    { "name":  "ICS332", "title":  "Operating Systems", "professors": ["Ravi Narayan"], "credits":  3 }
+    { "name":  "ICS 111", "title":  "Intro to Computer Science I", "professors": ["Edoardo Biagioni", "Cam Moore", "S P Robertson"], "credits":  4 },
+    { "name":  "ICS 141", "title":  "Discrete Math for CS I", "professors": ["Depeng Li"], "credits":  3 },
+    { "name":  "ICS 241", "title":  "Discrete Mathematics II", "professors": ["Depeng Li"], "credits":  3 },
+    { "name":  "ICS 211", "title":  "Intro to Computer Science II", "professors": ["Edoardo Biagioni"], "credits":  4 },
+    { "name":  "ICS 212", "title":  "Program Structure", "professors": ["Ravi Narayan", "K Tarrit Mirakhorli"], "credits":  3 },
+    { "name":  "ICS 235", "title":  "Machine Learning Methods", "professors": ["Kyungim Baek"], "credits":  3 },
+    { "name":  "ICS 311", "title":  "Algorithms", "professors": ["DB Conner", "N S Sitchinava"], "credits":  4 },
+    { "name":  "ICS 314", "title":  "Introduction to Software Engineering", "professors": ["Cam Moore", "Philip Johnson", "Dan Port"], "credits":  3 },
+    { "name":  "ICS 332", "title":  "Operating Systems", "professors": ["Ravi Narayan"], "credits":  3 }
   ],
   "defaultProfessors": [
     { "profName":  "Ravi Narayan", "courses": ["ICS 332", "ICS 212"] },
