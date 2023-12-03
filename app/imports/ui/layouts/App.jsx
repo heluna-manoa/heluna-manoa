@@ -43,12 +43,12 @@ const App = () => {
           <Route path="/signout" element={<SignOut />} />
           <Route path="/home" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
           <Route path="/write" element={<ProtectedRoute><WriteReview /></ProtectedRoute>} />
-          <Route path="/searchcourse/" element={<ProtectedRoute><ListCourses /></ProtectedRoute>} />
+          <Route path="/searchcourse/" element={<ListCourses />} />
           <Route path="/addcourse" element={<ProtectedRoute><AdminAddCourse /></ProtectedRoute>} />
           <Route path="/addprof" element={<ProtectedRoute><AdminAddProfessor /></ProtectedRoute>} />
           <Route path="/courseadmin" element={<AdminProtectedRoute ready={ready}><ListCoursesAdmin /></AdminProtectedRoute>} />
           <Route path="/edit/:_id" element={<AdminProtectedRoute ready={ready}><EditCourse /></AdminProtectedRoute>} />
-          <Route path="/coursereview/:courseName" element={<ProtectedRoute><CourseReview /></ProtectedRoute>} />
+          <Route path="/coursereview/:courseName" element={<CourseReview />} />
           <Route path="/userreviews" element={<ProtectedRoute><UserReviews /></ProtectedRoute>} />
           <Route path="/editreview/:_id" element={<ProtectedRoute ready={ready}><EditReview /></ProtectedRoute>} />
           <Route path="/notauthorized" element={<NotAuthorized />} />
