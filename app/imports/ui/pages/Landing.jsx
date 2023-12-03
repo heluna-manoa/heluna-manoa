@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
-import { Col, Container, Row, Image } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 import DisplayReviews from '../components/DisplayReviews';
 import DisplayReviewsUserless from '../components/DisplayReviewsUserless';
 import SearchBar from '../components/SearchBar';
