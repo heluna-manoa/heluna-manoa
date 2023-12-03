@@ -30,6 +30,7 @@ const Landing = () => {
           */}
         </Col>
       </Row>
+      <hr />
       {currentUser === '' ? (
         <Row className="align-middle text-center">
           <Col>
