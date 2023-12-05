@@ -33,7 +33,7 @@ ProfessorCard.propTypes = {
     professor: PropTypes.string,
     department: PropTypes.string,
     image: PropTypes.string,
-    courses: PropTypes.string,
+    courses: PropTypes.arrayOf(PropTypes.string),
     rating: PropTypes.number,
     _id: PropTypes.string,
   }).isRequired,
