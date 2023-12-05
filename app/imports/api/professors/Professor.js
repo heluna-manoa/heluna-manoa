@@ -14,7 +14,10 @@ class ProfessorCollection {
         type: String,
         optional: true,
       },
+      department: String,
+      image: String,
       courses: Array,
+      rating: Number,
       'courses.$': String,
     });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
