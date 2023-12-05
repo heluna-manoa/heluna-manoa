@@ -21,6 +21,7 @@ import ListCoursesAdmin from '../pages/ListCoursesAdmin';
 import CourseReview from '../pages/CourseReview';
 import AdminAddCourse from '../pages/AdminAddCourse';
 import EditCourse from '../pages/EditCourse';
+import ListProfessors from '../pages/ListProfessors';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -43,6 +44,7 @@ const App = () => {
           <Route path="/home" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
           <Route path="/write" element={<ProtectedRoute><WriteReview /></ProtectedRoute>} />
           <Route path="/searchcourse/" element={<ProtectedRoute><ListCourses /></ProtectedRoute>} />
+          <Route path="/searchprofessor/" element={<ProtectedRoute><ListProfessors /></ProtectedRoute>} />
           <Route path="/courseadmin" element={<AdminProtectedRoute ready={ready}><ListCoursesAdmin /></AdminProtectedRoute>} />
           <Route path="/edit/:_id" element={<AdminProtectedRoute ready={ready}><EditCourse /></AdminProtectedRoute>} />
           <Route path="/addprof" element={<ProtectedRoute><AdminAddCourse /></ProtectedRoute>} />
