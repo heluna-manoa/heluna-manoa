@@ -15,7 +15,7 @@ const ProfessorCard = ({ professor }) => (
     <Card.Header>
       <Card.Title>
         <Image src={professor.image} />
-        {professor.professor}
+        {professor.profName}
         <br />
         {displayStars(professor)}
       </Card.Title>
@@ -30,7 +30,7 @@ const ProfessorCard = ({ professor }) => (
 // Require a document to be passed to this component.
 ProfessorCard.propTypes = {
   professor: PropTypes.shape({
-    professor: PropTypes.string,
+    profName: PropTypes.string,
     department: PropTypes.string,
     image: PropTypes.string,
     courses: PropTypes.arrayOf(PropTypes.string),

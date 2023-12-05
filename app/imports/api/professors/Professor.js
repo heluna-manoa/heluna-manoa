@@ -10,7 +10,10 @@ class ProfessorCollection {
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
       profName: String,
+      department: String,
+      image: String,
       courses: Array,
+      rating: Number,
       'courses.$': String,
     });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
