@@ -35,14 +35,14 @@
     { "name":  "ICS332", "title":  "Operating Systems", "professors": ["Ravi Narayan"], "credits":  3 }
   ],
   "defaultProfessors": [
-    { "profName":  "Ravi Narayan", "courses": ["ICS 332", "ICS 212"] },
-    { "profName":  "Cam Moore", "courses": ["ICS 111", "ICS 314"] },
-    { "profName":  "Philip Johnson", "courses": ["ICS 314"] },
-    { "profName":  "N S Sitchinava", "courses": ["ICS 311"] },
-    { "profName":  "Kyungim Baek", "courses": ["ICS 235"] },
-    { "profName":  "K Tarrit Mirakhorli", "courses": ["ICS 212"] },
-    { "profName":  "Edoardo Biagioni", "courses": ["ICS 211"] },
-    { "profName":  "Depeng Li", "courses": ["ICS 141", "ICS 241"] },
-    { "profName":  "S P Robertson", "courses": ["ICS 111"] }
+    { "profName":  "Ravi Narayan", "department": "Computer Science", "image": "/images/blank-profile-picture.png", "rating": 0, "courses": ["ICS 332", "ICS 212"]},
+    { "profName":  "Cam Moore", "department": "Computer Science", "image": "/images/blank-profile-picture.png", "rating": 0, "courses": ["ICS 111", "ICS 314"] },
+    { "profName":  "Philip Johnson", "department": "Computer Science", "image": "/images/blank-profile-picture.png", "rating": 0, "courses": ["ICS 314"] },
+    { "profName":  "N S Sitchinava", "department": "Computer Science", "image": "/images/blank-profile-picture.png", "rating": 0, "courses": ["ICS 311"] },
+    { "profName":  "Kyungim Baek", "department": "Computer Science", "image": "/images/blank-profile-picture.png", "rating": 0, "courses": ["ICS 235"] },
+    { "profName":  "K Tarrit Mirakhorli", "department": "Computer Science", "image": "/images/blank-profile-picture.png", "rating": 0, "courses": ["ICS 212"] },
+    { "profName":  "Edoardo Biagioni", "department": "Computer Science", "image": "/images/blank-profile-picture.png", "rating": 0, "courses": ["ICS 211"] },
+    { "profName":  "Depeng Li", "department": "Computer Science", "image": "/images/blank-profile-picture.png", "rating": 0, "courses": ["ICS 141", "ICS 241"] },
+    { "profName":  "S P Robertson", "department": "Computer Science", "image": "/images/blank-profile-picture.png", "rating": 0, "courses": ["ICS 111"] }
   ]
 }
