@@ -25,9 +25,7 @@ const NavBar = () => {
             ]) : (
               <Nav.Link id="search-course-nav" as={NavLink} to="/searchcourse" key="searchcourse">Search Courses</Nav.Link>
             )}
-            {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
-              <Nav.Link id="search-admin-nav" as={NavLink} to="/courseadmin" key="courseadmin">Admin</Nav.Link>
-            ) : ''}
+
           </Nav>
           <Nav className="mx-auto justify-content-center">
             <a href="/">
@@ -35,6 +33,9 @@ const NavBar = () => {
             </a>
           </Nav>
           <Nav className="justify-content-end">
+            {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
+              <Nav.Link id="search-admin-nav" as={NavLink} to="/courseadmin" key="courseadmin">Admin</Nav.Link>
+            ) : ''}
             {currentUser === '' ? (
               <NavDropdown id="login-dropdown" title="Login">
                 <NavDropdown.Item id="login-dropdown-sign-in" as={NavLink} to="/signin">
