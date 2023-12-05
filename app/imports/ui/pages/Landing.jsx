@@ -4,7 +4,8 @@ import { useTracker } from 'meteor/react-meteor-data';
 import { Col, Container, Row } from 'react-bootstrap';
 import DisplayReviews from '../components/DisplayReviews';
 import DisplayReviewsUserless from '../components/DisplayReviewsUserless';
-import SearchBar from '../components/SearchBar';
+import SearchBarCourse from '../components/SearchBarCourse';
+import SearchBarProfessor from '../components/SearchBarProfessor';
 
 /* A simple static component to render some text for the landing page. */
 const Landing = () => {
@@ -18,16 +19,11 @@ const Landing = () => {
       <Row className="align-middle text-center landing-page">
         <Col>
           <h2 style={{ color: 'white' }}>Search by Course</h2>
-          <SearchBar />
+          <SearchBarCourse />
         </Col>
         <Col>
           <h2 style={{ color: 'white' }}>Search by Professor</h2>
-          <text style={{ color: 'white' }}>Coming Soon</text>
-          {/*
-          <form method="get" action="/searchcourse">
-            <input type="search" id="prof-search" name="professor" />
-          </form>
-          */}
+          <SearchBarProfessor />
         </Col>
       </Row>
       <hr />

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 /** Renders a single row in the List Courses table. See pages/ListCourses.jsx. */
-const SearchBar = () => {
+const SearchBarCourse = () => {
   const [query, setQuery] = useState('');
   const navigate = useNavigate();
 
@@ -39,4 +39,4 @@ const SearchBar = () => {
   );
 };
 
-export default SearchBar;
+export default SearchBarCourse;
