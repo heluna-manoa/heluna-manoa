@@ -41,6 +41,7 @@ body .navbar {
   --bs-navbar-color: var(--matr-navbar-text-color);
   --bs-navbar-hover-color: var(--matr-navbar-highlight-text);
   font-family: "Josefin Sans", san-serif;
+  --bs-bg-opacity: 75%;
 }
 
 .fixed-top {

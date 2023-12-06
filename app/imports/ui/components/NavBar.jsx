@@ -18,19 +18,15 @@ const NavBar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="justify-content-start">
-            {currentUser ? ([
-              <Nav.Link id="write-review-nav" as={NavLink} to="/write" key="write">Write Review</Nav.Link>,
-              <Nav.Link id="search-course-nav" as={NavLink} to="/searchcourse" key="searchcourse">Search Courses</Nav.Link>,
-              <Nav.Link id="user-reviews-nav" as={NavLink} to="/userreviews" key="userreviews">Your Reviews</Nav.Link>,
-            ]) : (
-              <Nav.Link id="search-course-nav" as={NavLink} to="/searchcourse" key="searchcourse">Search Courses</Nav.Link>
-            )}
-
+            <Nav.Link id="write-review-nav" as={NavLink} to="/write" key="write">Write Review</Nav.Link>
+            <Nav.Link id="user-reviews-nav" as={NavLink} to="/userreviews" key="userreviews">Your Reviews</Nav.Link>
           </Nav>
           <Nav className="mx-auto justify-content-center">
+            <Nav.Link className="my-auto" id="search-course-nav" as={NavLink} to="/searchcourse" key="searchcourse">Courses</Nav.Link>
             <a href="/">
               <Image src="/images/helunaManoaLogo.png" height={128} className="px-3" />
             </a>
+            <Nav.Link className="my-auto" id="search-course-nav" as={NavLink} to="/searchcourse" key="searchcourse">Professors</Nav.Link>
           </Nav>
           <Nav className="justify-content-end">
             {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
