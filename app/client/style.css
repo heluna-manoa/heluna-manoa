@@ -4,10 +4,10 @@
 
 /* Set up some CSS variables to theme the application. */
 :root {
-  --matr-navbar-bg: #008080;
-  --matr-navbar-bg-rgb: 0, 128, 128;
-  --matr-navbar-text-color: #062D23;
-  --matr-navbar-highlight-text: #035752;
+  --matr-navbar-bg: #000000;
+  --matr-navbar-bg-rgb: 0, 0, 0;
+  --matr-navbar-text-color: #FFFFFF;
+  --matr-navbar-highlight-text: #999999;
 }
 
 /* Change bootstrap variable values.
@@ -41,7 +41,7 @@ body .navbar {
   --bs-navbar-color: var(--matr-navbar-text-color);
   --bs-navbar-hover-color: var(--matr-navbar-highlight-text);
   font-family: "Josefin Sans", san-serif;
-  --bs-bg-opacity: 75%;
+  --bs-bg-opacity: 50%;
 }
 
 .fixed-top {
