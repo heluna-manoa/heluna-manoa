@@ -7,6 +7,9 @@ const displayStars = (professor) => {
   for (let i = 0; i < professor.rating; i++) {
     stars.push(<span> ★ </span>);
   }
+  if (stars.length === 0) {
+    return 'No Reviews';
+  }
   return stars;
 };
 
