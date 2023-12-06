@@ -11,7 +11,54 @@ import { Professors } from '../../api/professors/Professor';
 
 const AdminAddProfessor = () => {
   let fRef = null;
-
+  const DEPTLISTING = [
+    'American Studies',
+    'Accounting',
+    'Animal Sciences',
+    'Anthropology',
+    'Architecture',
+    'Art',
+    'Asian Studies',
+    'Astronomy',
+    'Biology',
+    'Botany',
+    'Business',
+    'Chemistry',
+    'Communications',
+    'Earth Sciences',
+    'Economics',
+    'Education',
+    'Engineering',
+    'English',
+    'Ethnic Studies',
+    'Finance',
+    'Food Science',
+    'Geography',
+    'Hawaiian Studies',
+    'History',
+    'Information and Computer Sciences',
+    'Japanese Studies',
+    'Journalism',
+    'Kinesiology',
+    'Korean Studies',
+    'Language',
+    'Law',
+    'Linguistics',
+    'Marketing',
+    'Mathematics',
+    'Natural Resources',
+    'Oceanography',
+    'Philosophy',
+    'Physics',
+    'Psychology',
+    'Public Health',
+    'Religion',
+    'Second Language Studies',
+    'Sociology',
+    'Theatre',
+    'Tropical Agriculture',
+    'WGSS',
+  ];
   const professorItems = useTracker(() => {
     const subscription = Meteor.subscribe(Professors.publicationName);
     return subscription.ready() ? Professors.collection.find({}).fetch() : [];
@@ -24,6 +71,10 @@ const AdminAddProfessor = () => {
       type: String,
       optional: true,
     },
+    department: {
+      type: String,
+      allowedValues: DEPTLISTING,
+    },
     courses: {
       type: Array,
       label: 'Courses',
@@ -32,6 +83,7 @@ const AdminAddProfessor = () => {
       type: String,
       allowedValues: uniqueCourses,
     },
+    image: String,
   });
   const bridge = new SimpleSchema2Bridge(professorSchema);
   const submitProfessor = (data, formRef) => {
@@ -42,8 +94,9 @@ const AdminAddProfessor = () => {
     if (uniqueNames.includes(profName)) {
       swal('ERROR! Professor exists.');
     } else {
+      const newData = { ...data, rating: 0 };
       // Course does not exist, perform insert
-      Meteor.call(addProfessorMethod, data, (error) => {
+      Meteor.call(addProfessorMethod, newData, (error) => {
         if (error) {
           swal('Error', error.message, 'error');
         } else {
@@ -75,8 +128,10 @@ const AdminAddProfessor = () => {
             <Card>
               <Card.Body>
                 <TextField name="profName" label="Professor Name (First Last)" />
+                <SelectField name="department" label="Select a Department" />
                 <TextField name="bio" label="Short Biography (optional)" />
                 <SelectField multiple name="courses" />
+                <TextField name="image" label="Image Link" />
                 <SubmitField value="Submit" />
                 <ErrorsField />
               </Card.Body>

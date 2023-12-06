@@ -21,8 +21,8 @@ const addProfessorMethod = 'Professors.add';
 
 /** Creates a new project in the Projects collection, and also updates ProfilesProjects and ProjectsInterests. */
 Meteor.methods({
-  'Professors.add'({ profName, bio, courses }) {
-    Professors.collection.insert({ profName, bio, courses });
+  'Professors.add'({ profName, bio, courses, department, image, rating }) {
+    Professors.collection.insert({ profName, bio, courses, department, image, rating });
     courses.forEach((name) => {
       Courses.collection.update({ name: name }, { $addToSet: { professors: profName } });
     });
