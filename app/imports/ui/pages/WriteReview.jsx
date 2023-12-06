@@ -91,7 +91,7 @@ const WriteReview = () => {
   };
 
   return (
-    <Container className="py-3">
+    <Container className="top-navbar-margin">
       <Row className="justify-content-center">
         <Col xs={5}>
           <Col className="text-center"><h2 style={{ color: 'white' }}>Write a Review</h2></Col>

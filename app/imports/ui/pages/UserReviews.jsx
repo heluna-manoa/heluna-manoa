@@ -24,7 +24,7 @@ const UserReviews = () => {
     };
   }, []);
   return (ready ? (
-    <Container className="py-3">
+    <Container className="top-navbar-margin">
       <Row className="justify-content-center">
         <Col>
           <Col className="text-center">

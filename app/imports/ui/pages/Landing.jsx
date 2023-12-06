@@ -15,8 +15,8 @@ const Landing = () => {
   }), []);
 
   return (
-    <Container id="landing-page" fluid className="py-3">
-      <Row className="align-middle text-center landing-page">
+    <Container id="landing-page" fluid className="top-navbar-margin">
+      <Row className="align-middle text-center">
         <Col>
           <h2 style={{ color: 'white' }}>Search by Course</h2>
           <SearchBarCourse />

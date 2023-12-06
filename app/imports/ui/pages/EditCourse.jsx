@@ -39,7 +39,7 @@ const EditCourse = () => {
   };
 
   return ready ? (
-    <Container className="py-3">
+    <Container className="top-navbar-margin">
       <Row className="justify-content-center">
         <Col xs={5}>
           <Col className="text-center"><h2>Edit Course</h2></Col>

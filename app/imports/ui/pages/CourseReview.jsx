@@ -41,7 +41,7 @@ const CourseReview = () => {
   const avgRating = reviewsFiltered.reduce((memo, review) => (memo + review.rating), 0) / reviewsFiltered.length;
 
   return (ready ? (
-    <Container className="py-3">
+    <Container className="top-navbar-margin">
       <Row className="justify-content-center">
         <Col className="text-center">
           <h1 style={{ color: 'white' }}>Review of {chosenCourse.name}</h1>

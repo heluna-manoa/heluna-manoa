@@ -118,7 +118,7 @@ const AdminAddProfessor = () => {
   //   });
   // };
   return (
-    <Container className="py-3">
+    <Container className="top-navbar-margin">
       <Row className="justify-content-center">
         <Col xs={5}>
           <Col className="text-center">

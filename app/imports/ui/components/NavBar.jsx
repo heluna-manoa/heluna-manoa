@@ -26,7 +26,7 @@ const NavBar = () => {
             <a href="/">
               <Image src="/images/helunaManoaLogo.png" height={128} className="px-3" />
             </a>
-            <Nav.Link className="my-auto" id="search-course-nav" as={NavLink} to="/searchcourse" key="searchcourse">Professors</Nav.Link>
+            <Nav.Link className="my-auto" id="search-course-nav" as={NavLink} to="/searchprofessor" key="searchcourse">Professors</Nav.Link>
           </Nav>
           <Nav className="justify-content-end">
             {Roles.userIsInRole(Meteor.userId(), 'admin') ? (

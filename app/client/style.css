@@ -68,7 +68,6 @@ footer {
   width: 100%;
 }
 
-#landing-page {
-  margin-top: 300px;
-  margin-bottom: 250px;
+.top-navbar-margin {
+  margin-top: 84px;
 }

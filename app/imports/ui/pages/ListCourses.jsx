@@ -41,7 +41,7 @@ const ListCourses = () => {
   }
 
   return (ready ? (
-    <Container className="py-3">
+    <Container className="top-navbar-margin">
       <Row className="justify-content-center">
         <Col md={7}>
           <Col className="text-center">
