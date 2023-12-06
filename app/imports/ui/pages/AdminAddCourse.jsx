@@ -92,7 +92,7 @@ const AdminAddCourse = () => {
       <Row className="justify-content-center">
         <Col xs={5}>
           <Col className="text-center">
-            <h2 style={{ color: 'white' }}>Add a Course</h2>
+            <h1 style={{ color: 'white' }}>Add a Course</h1>
           </Col>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submitCourse(data, fRef)}>
             <Card>

@@ -14,18 +14,30 @@ const displayStars = (professor) => {
 };
 
 const ProfessorCard = ({ professor }) => (
-  <Card className="h-100 landing-card">
+  <Card className="landing-card">
     <Card.Header>
       <Card.Title>
-        <Image src={professor.image} />
-        {professor.profName}
-        <br />
-        {displayStars(professor)}
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <Image src={professor.image} style={{ width: '100px', height: '100px', marginRight: '10px' }} />
+          <div>
+            {professor.profName}
+            <br />
+            {displayStars(professor)}
+          </div>
+        </div>
       </Card.Title>
       <Card.Subtitle>{professor.department}</Card.Subtitle>
     </Card.Header>
     <Card.Body>
-      <Card.Text>{professor.courses}</Card.Text>
+      <Card.Text>{professor.bio}</Card.Text>
+      <Card.Text>
+        Courses:
+        <ul>
+          {professor.courses.map((course, index) => (
+            <li key={index}>{course}</li>
+          ))}
+        </ul>
+      </Card.Text>
     </Card.Body>
   </Card>
 );
@@ -35,6 +47,7 @@ ProfessorCard.propTypes = {
   professor: PropTypes.shape({
     profName: PropTypes.string,
     department: PropTypes.string,
+    bio: PropTypes.string,
     image: PropTypes.string,
     courses: PropTypes.arrayOf(PropTypes.string),
     rating: PropTypes.number,

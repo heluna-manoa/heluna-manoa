@@ -4,7 +4,7 @@
     { "email": "john@foo.com", "password": "changeme" }
   ],
   "reviewData": [
-    { "courseName": "ICS314",
+    { "courseName": "ICS 314",
       "professor": "Cam Moore",
       "semesterTaken": "Fall 2023",
       "reviewContent": "Great Class",
@@ -13,7 +13,7 @@
       "anonymous": true,
       "reviewer": "john@foo.com"
     },
-    { "courseName": "ICS212",
+    { "courseName": "ICS 212",
       "professor": "Ravi Narayan",
       "semesterTaken": "Spring 2023",
       "reviewContent": "Great Class",

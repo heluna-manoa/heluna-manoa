@@ -40,7 +40,7 @@ body .navbar {
   --bs-navbar-brand-hover-color: var(--matr-navbar-highlight-text);
   --bs-navbar-color: var(--matr-navbar-text-color);
   --bs-navbar-hover-color: var(--matr-navbar-highlight-text);
-  font-family: "Josefin Sans", san-serif;
+  font-family: "Josefin Sans", san-serif, serif;
   --bs-bg-opacity: 50%;
 }
 
@@ -54,20 +54,18 @@ body .navbar {
 
 h1 {
   color: white;
+  font-family: "Josefin Sans", san-serif, serif;
 }
 
 h2 {
   color: white;
-}
-
-footer {
-  color: var(--matr-navbar-text-color);
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
+  font-family: "Josefin Sans", san-serif, serif;
 }
 
 .top-navbar-margin {
   margin-top: 84px;
+}
+
+form {
+  font-family: "Josefin Sans", san-serif, serif;
 }

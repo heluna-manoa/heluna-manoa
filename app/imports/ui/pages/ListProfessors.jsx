@@ -45,15 +45,18 @@ const ListProfessors = () => {
       <Row className="justify-content-center">
         <Col md={7}>
           <Col className="text-center">
-            <h2 style={{ color: 'white' }}>List Professors</h2>
+            <h1 style={{ color: 'white' }}>Professor Directory</h1>
           </Col>
         </Col>
       </Row>
       <Container className="py-3">
         <Row>
-          <Col className="format-align-center">
-            {professorsFiltered.map((professor) => <ProfessorCard professor={professor} />)}
-          </Col>
+          {professorsFiltered.map((professor) => (
+            // Add margin to each ProfessorCard
+            <Col md={12} className="mb-3">
+              <ProfessorCard professor={professor} />
+            </Col>
+          ))}
         </Row>
       </Container>
     </Container>

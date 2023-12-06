@@ -38,14 +38,20 @@ const CourseReview = () => {
   const reviewsFiltered = reviews.filter((review) => review.courseName === courseName);
   const chosenCourse = courses.find((course) => course.name === courseName);
   // Calculate the average rating given to the course
-  const avgRating = reviewsFiltered.reduce((memo, review) => (memo + review.rating), 0) / reviewsFiltered.length;
+  const avgRating = () => {
+    if (reviewsFiltered.length === 0) {
+      return 'N/A';
+    }
+    return reviewsFiltered.reduce((memo, review) => memo + review.rating, 0) / reviewsFiltered.length;
+  };
 
   return (ready ? (
     <Container className="top-navbar-margin">
       <Row className="justify-content-center">
         <Col className="text-center">
-          <h1 style={{ color: 'white' }}>Review of {chosenCourse.name}</h1>
+          <h1 style={{ color: 'white' }}>{chosenCourse.name}</h1>
           <h2 style={{ color: 'white' }}>{chosenCourse.title}</h2>
+          <h2 style={{ color: 'white' }}>Average Rating: {avgRating()}</h2>
         </Col>
       </Row>
       <Row>
@@ -56,20 +62,23 @@ const CourseReview = () => {
           <h2 style={{ color: 'white' }}>Professors:</h2>
           {chosenCourse.professors.map((professor) => <h3 style={{ color: 'white' }}>{professor}</h3>)}
         </Col>
-        <Col className="text-center">
-          <h2 style={{ color: 'white' }}>Average Rating: {avgRating}</h2>
-        </Col>
       </Row>
       <Row xs={1} md={2} lg={3} className="g-4">
-        {reviewsFiltered.map((review) => (
-          <Col key={review._id}>
-            {currentUser === review.reviewer ? (
-              <ReviewCard review={review} />
-            ) : (
-              <ReviewCardCourse review={review} />
-            )}
+        {reviewsFiltered.length === 0 ? (
+          <Col className="d-flex justify-content-center align-items-center" style={{ minHeight: '200px' }}>
+            <h1 style={{ color: 'white' }}>No Reviews Yet!</h1>
           </Col>
-        ))}
+        ) : (
+          reviewsFiltered.map((review) => (
+            <Col key={review._id}>
+              {currentUser === review.reviewer ? (
+                <ReviewCard review={review} />
+              ) : (
+                <ReviewCardCourse review={review} />
+              )}
+            </Col>
+          ))
+        )}
       </Row>
     </Container>
   ) : <LoadingSpinner />);

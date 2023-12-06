@@ -39,7 +39,7 @@ const ListCoursesAdmin = () => {
       <Row className="justify-content-center">
         <Col md={7}>
           <Col className="text-center">
-            <h2 style={{ color: 'white' }}>List Courses Admin</h2>
+            <h1 style={{ color: 'white' }}>Admin Console</h1>
           </Col>
           <Table striped bordered hover>
             <thead>

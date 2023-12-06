@@ -15,14 +15,14 @@ const ReviewCardCourse = ({ review }) => (
     <Card.Header>
       <Card.Title> {displayStars(review)} <br /> {review.courseName}
       </Card.Title>
-      <Card.Subtitle>{review.professor}</Card.Subtitle>
+      <Card.Subtitle>Professor: {review.professor}</Card.Subtitle>
     </Card.Header>
     <Card.Body>
       <Card.Text>{review.reviewContent}</Card.Text>
       <Card.Subtitle>
         Grade: {review.grade}
         <br />
-        {review.anonymous ? (<i>Anonymous</i>) : (<i>{review.reviewer}</i>)}
+        Reviewer: {review.anonymous ? (<i>Anonymous</i>) : (<i>{review.reviewer}</i>)}
       </Card.Subtitle>
     </Card.Body>
   </Card>
