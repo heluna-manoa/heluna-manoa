@@ -8,6 +8,7 @@ import swal from 'sweetalert';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { addProfessorMethod } from '../../startup/both/Methods';
 import { Professors } from '../../api/professors/Professor';
+import { Courses } from '../../api/courses/Course';
 
 const AdminAddProfessor = () => {
   let fRef = null;
@@ -63,8 +64,12 @@ const AdminAddProfessor = () => {
     const subscription = Meteor.subscribe(Professors.publicationName);
     return subscription.ready() ? Professors.collection.find({}).fetch() : [];
   }, []);
-  const allProfessors = professorItems.reduce((acc, professorItem) => acc.concat(professorItem.courses), []);
-  const uniqueCourses = [...new Set(allProfessors)];
+  const courseItems = useTracker(() => {
+    const subscription = Meteor.subscribe(Courses.publicationName);
+    return subscription.ready() ? Courses.collection.find({}).fetch() : [];
+  }, []);
+  const allCourses = courseItems.map(courseItem => courseItem.name);
+  const uniqueCourses = [...new Set(allCourses)];
   const professorSchema = new SimpleSchema({
     profName: String,
     bio: {

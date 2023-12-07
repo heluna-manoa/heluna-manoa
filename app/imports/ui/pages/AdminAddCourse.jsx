@@ -75,7 +75,7 @@ const AdminAddCourse = () => {
         if (error) {
           swal('Error', error.message, 'error');
         } else {
-          swal('Success', 'Project added successfully', 'success').then(() => formRef.reset());
+          swal('Success', 'Course added successfully', 'success').then(() => formRef.reset());
         }
       });
     }
