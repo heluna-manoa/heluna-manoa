@@ -21,7 +21,7 @@ const AdminAddCourse = () => {
     const subscription = Meteor.subscribe(Professors.publicationName);
     return subscription.ready() ? Professors.collection.find({}).fetch() : [];
   }, []);
-  const allProfessors = professorItems.reduce((acc, professorItem) => acc.concat(professorItem.courses), []);
+  const allProfessors = professorItems.map(professorItem => professorItem.profName);
   const uniqueProfessors = [...new Set(allProfessors)];
   const professorSchema = new SimpleSchema({
     name: String,
