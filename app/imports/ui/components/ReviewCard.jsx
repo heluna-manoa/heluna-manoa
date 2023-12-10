@@ -37,15 +37,16 @@ const ReviewCard = ({ review }) => {
   return (
     <Card className="h-100">
       <Card.Header>
-        <Card.Title> {displayStars(review)} <br /> {review.courseName} <br /> {review.professor}
+        <Card.Title> {displayStars(review)} <br /> {review.courseName}
         </Card.Title>
+        <Card.Subtitle>Professor: {review.professor}</Card.Subtitle>
       </Card.Header>
       <Card.Body>
         <Card.Text>{review.reviewContent}</Card.Text>
         <Card.Subtitle className="m-2">
           Grade: {review.grade}
           <br />
-          <i>{review.reviewer}</i>{review.anonymous ? (' [Review Anonymous]') : (' [Name Displayed]')}
+          Reviewer: <i>{review.reviewer}</i>{review.anonymous ? (' [Review Anonymous]') : (' [Name Displayed]')}
         </Card.Subtitle>
         <Link id="edit-review" to={`/editreview/${review._id}`}><Button variant="warning">Edit</Button></Link>
         <Button id="delete-review" className="mx-2" variant="danger" onClick={() => removeReview(Reviews.collection, review._id)}><Trash /></Button>

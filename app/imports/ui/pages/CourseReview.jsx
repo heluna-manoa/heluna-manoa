@@ -3,6 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import { useParams } from 'react-router';
+import { Roles } from 'meteor/alanning:roles';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Courses } from '../../api/courses/Course';
 import { Reviews } from '../../api/reviews/Review';
@@ -71,7 +72,7 @@ const CourseReview = () => {
         ) : (
           reviewsFiltered.map((review) => (
             <Col key={review._id}>
-              {currentUser === review.reviewer ? (
+              {(currentUser === review.reviewer) || (Roles.userIsInRole(Meteor.userId(), 'admin')) ? (
                 <ReviewCard review={review} />
               ) : (
                 <ReviewCardCourse review={review} />
