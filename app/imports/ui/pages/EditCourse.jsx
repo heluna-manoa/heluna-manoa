@@ -1,6 +1,6 @@
 import React from 'react';
 import swal from 'sweetalert';
-import { Card, Col, Container, Row } from 'react-bootstrap';
+import { Button, Card, Col, Container, Row } from 'react-bootstrap';
 import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
@@ -8,6 +8,7 @@ import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { useParams } from 'react-router';
 import { Courses } from '../../api/courses/Course';
 import LoadingSpinner from '../components/LoadingSpinner';
+import { Link } from 'react-router-dom';
 
 const bridge = new SimpleSchema2Bridge(Courses.schema);
 
@@ -51,6 +52,7 @@ const EditCourse = () => {
                 <TextField multiple name="professors" />
                 <TextField name="credits" />
                 <SubmitField value="Submit" />
+                <Link to="/courseadmin"><Button variant="warning">Cancel</Button></Link>
                 <ErrorsField />
               </Card.Body>
             </Card>

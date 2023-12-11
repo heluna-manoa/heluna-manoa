@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
-import { Container, Row, Col, Card } from 'react-bootstrap';
+import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import SimpleSchema from 'simpl-schema';
 import { AutoForm, SelectField, SubmitField, TextField, ErrorsField, BoolField } from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { Reviews } from '../../api/reviews/Review';
 import { Courses } from '../../api/courses/Course';
+import { Link } from 'react-router-dom';
 
 const WriteReview = () => {
   let fRef = null;
@@ -118,6 +119,7 @@ const WriteReview = () => {
                 <TextField id="review-text" name="reviewContent" component="textarea" rows={4} placeholder="Write your review here" />
                 <BoolField name="anonymous" component="switch" label="Submit Anonymously?" />
                 <SubmitField id="submit-button" value="Submit Review" />
+                <Link to="/"><Button variant="warning">Cancel</Button></Link>
                 <ErrorsField />
               </Card.Body>
             </Card>

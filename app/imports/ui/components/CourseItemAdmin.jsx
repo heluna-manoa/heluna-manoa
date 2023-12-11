@@ -4,6 +4,7 @@ import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { Trash } from 'react-bootstrap-icons';
 import { Courses } from '../../api/courses/Course';
+import swal from 'sweetalert';
 
 /** A function to render the professors. If no professors, write No professors */
 const renderProfessors = (professors) => {
@@ -18,8 +19,23 @@ const renderProfessors = (professors) => {
 /** Renders a single row in the List Courses table. See pages/ListCourses.jsx. */
 const CourseItemAdmin = ({ course }) => {
   const removeCourse = (collection, docID) => {
-    console.log(`The item to remove is ${docID}`);
-    collection.remove(docID);
+    swal({
+      title: 'Are you sure?',
+      text: 'Once deleted, you will not be able to recover this course!',
+      icon: 'warning',
+      buttons: true,
+      dangerMode: true,
+    })
+      .then((willDelete) => {
+        if (willDelete) {
+          swal('Poof! The course has been deleted!', {
+            icon: 'success',
+          });
+          collection.remove(docID);
+        } else {
+          swal('This course is safe!');
+        }
+      });
   };
   return (
     <tr>
