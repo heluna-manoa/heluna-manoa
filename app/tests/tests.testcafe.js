@@ -78,7 +78,7 @@ test('Test the List Professors page', async (testController) => {
   await listProfessors.isDisplayed(testController);
 });
 
-test.only('Test the Admin Panel page and add, edit, and delete a course', async (testController) => {
+test('Test the Admin Panel page and add, edit, and delete a course', async (testController) => {
   await navBar.gotoSignInPage(testController);
   await signinPage.signin(testController, credentials.adminUser, credentials.password);
   await navBar.gotoAdminPanelPage(testController);
