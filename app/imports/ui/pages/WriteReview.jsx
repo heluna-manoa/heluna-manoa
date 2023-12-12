@@ -6,9 +6,9 @@ import SimpleSchema from 'simpl-schema';
 import { AutoForm, SelectField, SubmitField, TextField, ErrorsField, BoolField } from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
+import { Link } from 'react-router-dom';
 import { Reviews } from '../../api/reviews/Review';
 import { Courses } from '../../api/courses/Course';
-import { Link } from 'react-router-dom';
 
 const WriteReview = () => {
   let fRef = null;

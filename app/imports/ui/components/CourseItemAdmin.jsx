@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { Trash } from 'react-bootstrap-icons';
-import { Courses } from '../../api/courses/Course';
 import swal from 'sweetalert';
+import { Courses } from '../../api/courses/Course';
 
 /** A function to render the professors. If no professors, write No professors */
 const renderProfessors = (professors) => {
