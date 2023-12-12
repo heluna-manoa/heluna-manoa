@@ -9,7 +9,6 @@ import { listCoursesPage } from './listcourses.page';
 import { listProfessors } from './listprofessors.page';
 import { adminPanel } from './adminpanel.page';
 import { editCourse } from './editcourse.page';
-import { addCourse } from './addcourse.page';
 import { addProfessor } from './addprofessor.page';
 
 /* global fixture:false, test:false */
