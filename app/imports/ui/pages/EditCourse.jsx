@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import swal from 'sweetalert';
 import { Button, Card, Col, Container, Row } from 'react-bootstrap';
 import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
@@ -8,12 +8,13 @@ import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { useParams } from 'react-router';
 import { Courses } from '../../api/courses/Course';
 import LoadingSpinner from '../components/LoadingSpinner';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 
 const bridge = new SimpleSchema2Bridge(Courses.schema);
 
 /* Renders the EditStuff page for editing a single document. */
 const EditCourse = () => {
+  const [redirect, setRedirect] = useState(false);
   // Get the documentID from the URL field. See imports/ui/layouts/App.jsx for the route containing :_id.
   const { _id } = useParams();
   // console.log('EditStuff', _id);
@@ -34,11 +35,18 @@ const EditCourse = () => {
   // On successful submit, insert the data.
   const submit = (data) => {
     const { name, title, professors, credit } = data;
-    Courses.collection.update(_id, { $set: { name, title, professors, credit } }, (error) => (error ?
-      swal('Error', error.message, 'error') :
-      swal('Success', 'Item updated successfully', 'success')));
+    Courses.collection.update(_id, { $set: { name, title, professors, credit } }, (error) => {
+      if (error) {
+        swal('Error', error.message, 'error');
+      } else {
+        swal('Success', 'Review updated successfully', 'success');
+        setRedirect(true);
+      }
+    });
   };
-
+  if (redirect) {
+    return (<Navigate to="/courseadmin" />);
+  }
   return ready ? (
     <Container className="top-navbar-margin">
       <Row className="justify-content-center">
@@ -47,11 +55,11 @@ const EditCourse = () => {
           <AutoForm schema={bridge} onSubmit={data => submit(data)} model={doc}>
             <Card>
               <Card.Body>
-                <TextField name="name" />
-                <TextField name="title" />
-                <TextField multiple name="professors" />
-                <TextField name="credits" />
-                <SubmitField value="Submit" />
+                <TextField id="name-text" name="name" />
+                <TextField id="title-text" name="title" />
+                <TextField id="professor-text" multiple name="professors" />
+                <TextField id="credit-text" name="credits" />
+                <SubmitField id="submit-button" value="Submit" />
                 <Link to="/courseadmin"><Button variant="warning">Cancel</Button></Link>
                 <ErrorsField />
               </Card.Body>

@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import SimpleSchema from 'simpl-schema';
 import { AutoForm, SelectField, SubmitField, TextField, ErrorsField } from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
+import { Navigate } from 'react-router-dom';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { addProfessorMethod } from '../../startup/both/Methods';
 import { Professors } from '../../api/professors/Professor';
@@ -12,6 +13,7 @@ import { Courses } from '../../api/courses/Course';
 
 const AdminAddProfessor = () => {
   let fRef = null;
+  const [redirect, setRedirect] = useState(false);
   const DEPTLISTING = [
     'American Studies',
     'Accounting',
@@ -98,6 +100,7 @@ const AdminAddProfessor = () => {
 
     if (uniqueNames.includes(profName)) {
       swal('ERROR! Professor exists.');
+      setRedirect(true);
     } else {
       const newData = { ...data, rating: 0 };
       // Course does not exist, perform insert
@@ -106,11 +109,14 @@ const AdminAddProfessor = () => {
           swal('Error', error.message, 'error');
         } else {
           swal('Success', 'Professor added successfully', 'success').then(() => formRef.reset());
+          setRedirect(true);
         }
       });
     }
   };
-
+  if (redirect) {
+    return (<Navigate to="/courseadmin" />);
+  }
   // const updateProfessors = (data) => {
   //   const { name, professors } = data;
   //   professors.forEach((profName) => {
@@ -132,12 +138,12 @@ const AdminAddProfessor = () => {
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submitProfessor(data, fRef)}>
             <Card>
               <Card.Body>
-                <TextField name="profName" label="Professor Name (First Last)" />
-                <SelectField name="department" label="Select a Department" />
-                <TextField name="bio" label="Short Biography (optional)" />
-                <SelectField multiple name="courses" />
-                <TextField name="image" label="Image Link" />
-                <SubmitField value="Submit" />
+                <TextField id="professor-name" name="profName" label="Professor Name (First Last)" />
+                <SelectField id="department-name" name="department" label="Select a Department" />
+                <TextField id="biography-text" name="bio" label="Short Biography (optional)" />
+                <SelectField id="select-courses" multiple name="courses" />
+                <TextField id="image-url" name="image" label="Image Link" />
+                <SubmitField id="submit-button" value="Submit" />
                 <ErrorsField />
               </Card.Body>
             </Card>

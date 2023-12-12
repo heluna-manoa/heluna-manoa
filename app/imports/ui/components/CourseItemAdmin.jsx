@@ -43,8 +43,8 @@ const CourseItemAdmin = ({ course }) => {
       <td>{course.title}</td>
       <td>{renderProfessors(course.professors)}</td>
       <td>{course.credits}</td>
-      <td><Link to={`/edit/${course._id}`}>Edit</Link></td>
-      <td><Button variant="danger" onClick={() => removeCourse(Courses.collection, course._id)}><Trash /></Button></td>
+      <td><Link id="edit-course" to={`/edit/${course._id}`}>Edit</Link></td>
+      <td><Button id="delete-course" variant="danger" onClick={() => removeCourse(Courses.collection, course._id)}><Trash /></Button></td>
     </tr>
   );
 };

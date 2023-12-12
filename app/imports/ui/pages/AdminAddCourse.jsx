@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import SimpleSchema from 'simpl-schema';
 import { AutoForm, SelectField, SubmitField, TextField, ErrorsField } from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
+import { Navigate } from 'react-router-dom';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { addCourseMethod } from '../../startup/both/Methods';
 import { Courses } from '../../api/courses/Course';
@@ -12,7 +13,7 @@ import { Professors } from '../../api/professors/Professor';
 
 const AdminAddCourse = () => {
   let fRef = null;
-
+  const [redirect, setRedirect] = useState(false);
   const courseItems = useTracker(() => {
     const subscription = Meteor.subscribe(Courses.publicationName);
     return subscription.ready() ? Courses.collection.find({}).fetch() : [];
@@ -69,6 +70,7 @@ const AdminAddCourse = () => {
 
     if (uniqueNames.includes(name)) {
       swal('ERROR! Class exists.');
+      setRedirect(true);
     } else {
       // Course does not exist, perform insert
       Meteor.call(addCourseMethod, data, (error) => {
@@ -76,10 +78,14 @@ const AdminAddCourse = () => {
           swal('Error', error.message, 'error');
         } else {
           swal('Success', 'Course added successfully', 'success').then(() => formRef.reset());
+          setRedirect(true);
         }
       });
     }
   };
+  if (redirect) {
+    return (<Navigate to="/courseadmin" />);
+  }
 
   // const updateProfessors = (data) => {
   //   const { name, professors } = data;
@@ -102,11 +108,11 @@ const AdminAddCourse = () => {
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submitCourse(data, fRef)}>
             <Card>
               <Card.Body>
-                <TextField name="name" />
-                <TextField name="title" />
-                <SelectField multiple name="professors" />
-                <SelectField name="credits" />
-                <SubmitField value="Submit" />
+                <TextField id="name-text" name="name" />
+                <TextField id="title-text" name="title" />
+                <SelectField id="select-professors" multiple name="professors" />
+                <SelectField id="credit-select" name="credits" />
+                <SubmitField id="submit-button" value="Submit" />
                 <ErrorsField />
               </Card.Body>
             </Card>
